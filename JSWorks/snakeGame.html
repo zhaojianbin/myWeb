@@ -1,0 +1,225 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>简易贪吃蛇</title>
+<style>
+body{
+	margin:0;
+	padding:0;
+	background:#ced7df;
+}
+#stage{
+	position:relative;
+	width:1100px;
+	height:600px;
+	background:#630;
+	margin:10px auto;
+}
+#main{
+	position:absolute;
+	left:50px;
+	top:50px;
+	width:1000px;
+	height:500px;
+	background:#999;
+}
+#main div{
+	position:absolute;
+	width:50px;
+	height:50px;
+}
+#main .l{
+	transform:rotate(0deg);
+}
+#main .r{
+	transform:rotate(180deg);
+}
+#main .t{
+	transform:rotate(90deg);
+}
+#main .b{
+	transform:rotate(270deg);
+}
+</style>
+</head>
+
+<body>
+<div id="start">
+	<div id="btn"></div>
+</div>
+<div id="stage">
+	<div id="main"></div>
+</div>
+<script>
+window.onload = function(){
+	var oMain = document.getElementById('main');
+	//活动区域分为10行,20列，每个单元格50*50
+	var R = 10;
+	var C = 20;
+	//存放蛇身体的数组
+	var aSnake = [];
+	//把蛇创造出来
+	for(var i=0; i<6; i++){
+		var oBody = document.createElement('div');
+		//创建一个div放蛇身体的图片
+		oBody.style.background = 'url(../images/JSWorksSnakeGame/0'+i+'.jpg)';
+		oMain.appendChild(oBody);
+		//r代表第几行，c代表第几列，div是蛇本身，一张图片，d代表蛇头的方向
+		//c从8开始，代表默认打开蛇头就在第五列，
+		aSnake[i] = {r:0,c:10+i,div:oBody,d:'l',type:'snake'};
+		setPos(aSnake[i]);
+	}
+	
+	//设置坐标位置的函数
+	function setPos(obj){
+		obj.div.style.left = obj.c*50+'px';
+		obj.div.style.top = obj.r*50+'px'; 
+		/*//设置蛇本身身体的朝向，而不是蛇移动的朝向*/
+		if(obj.type == 'food'){
+			obj.className = '';
+		}
+		else{
+			obj.div.className = obj.d;
+		}
+	}
+	
+	//让蛇开始移动，dir是蛇行进的方向
+	var dir = 'l';
+	var timer = setInterval(function(){
+		//看看是否撞墙
+		if(aSnake[0].c<0 || aSnake[0].r<0 || aSnake[0].c>=C || aSnake[0].r>=R){
+			alert('亲，撞墙啦！');
+			clearInterval(timer);
+			return;
+		}
+		//看看是否撞到了不该吃的东西,从1开始循环，食物的第0个可以吃
+		for(var i=1; i<aFood.length; i++){
+			if(aSnake[0].r == aFood[i].r && aSnake[0].c == aFood[i].c){
+				alert('亲，吃的顺序不对！');
+				clearInterval(timer);
+				return;
+			}
+		}
+		//看看有没有撞到自己身上，也是从1开始循环，蛇头不可能自己装上自己
+		for(var i=1; i<aSnake.length; i++){
+			if(aSnake[0].r == aSnake[i].r && aSnake[0].c == aSnake[i].c){
+				alert('哦，自杀了！');
+				clearInterval(timer);
+				return;
+			}
+		}
+		//通关提示
+		if(aSnake.length == 30){
+			alert('通关，你好棒！');
+			clearInterval(timer);
+			return;
+		}
+		//看看有没有吃到东西
+		if(aSnake[0].r == aFood[0].r && aSnake[0].c == aFood[0].c){
+			aSnake.splice(aSnake.length,0,aFood[0]);
+			aFood.shift();
+			
+			//如果吃完了
+			if(aFood.length == 0){
+				createFood();
+			}
+		}
+		
+		//移动蛇的身体
+		for(var i=aSnake.length-1; i>0; i--){
+			//倒着循环，后面的身体位置跟着前面的走
+			aSnake[i].r = aSnake[i-1].r;
+			aSnake[i].c = aSnake[i-1].c;
+			//后面的身体方向跟着前面的走
+			aSnake[i].d = aSnake[i-1].d;
+			
+		}
+		
+		//移动蛇头，这样身体才能跟着头动
+		switch(dir){
+			case 'l':
+				aSnake[0].c--;
+				break;
+			case 'r':
+				aSnake[0].c++;
+				break;
+			case 't':
+				aSnake[0].r--;
+				break;
+			case 'b':
+				aSnake[0].r++;
+				break;
+		}
+		//设置一次位置
+		for(var i=0; i<aSnake.length; i++){
+			setPos(aSnake[i]);
+		}
+	},200);
+	
+	//用键盘控制蛇的移动方向，根据keyCod决定方向，根据方向决定c和r的变化
+	document.onkeydown = function(ev){
+		var oEvent = ev || window.event;
+		switch(oEvent.keyCode){
+			case 37:
+				dir = 'l';//37代表左
+				aSnake[0].d = 'l';
+				break;
+			case 38:
+				dir = 't';//38代表上
+				aSnake[0].d = 't';
+				break;
+			case 39:
+				dir = 'r';//39代表右
+				aSnake[0].d = 'r';
+				break;
+			case 40:
+				dir = 'b';//40代表下
+				aSnake[0].d = 'b';
+				break;
+		}
+	};
+	
+	//放置食物
+	var aFood = [];
+	//当前吃到第几行了
+	var nowRow = 0;
+	function createFood(){
+		while(aFood.length<4){
+			//随机产生行跟列
+			var r = parseInt(Math.random()*R);
+			var c = parseInt(Math.random()*C);
+			//看看位置是否冲突
+			var found = false;
+			
+			//防止生成的食物的位置跟蛇的位置冲突
+			for(var i=0; i<aSnake.length; i++){
+				if(r==aSnake[i].r && c==aSnake[i].c){
+					found = true;
+				}
+			}
+			for(var i=0; i<aFood.length; i++){
+				if(r==aFood[i].r && c==aFood[i].c){
+					found = true;
+				}
+			}
+			if(!found){
+				var oFood = document.createElement('div');
+				//aFood.length代表的就是第几个
+				oFood.style.background = 'url(../images/JSWorksSnakeGame/food.jpg) no-repeat -'+50*aFood.length+'px -'+50*nowRow+'px';
+				oMain.appendChild(oFood);
+				aFood.push({r:r,c:c,div:oFood,type:'food'});
+			}
+		}
+		for(var i=0; i<aFood.length; i++){
+			setPos(aFood[i]);
+		}
+		//把吃到的行数加1
+		nowRow++;
+	}
+	createFood();
+	
+};
+</script>
+</body>
+</html>

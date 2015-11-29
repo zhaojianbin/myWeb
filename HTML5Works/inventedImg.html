@@ -1,0 +1,280 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>图片倒影和点击切换</title>
+<!--一张图片的尺寸是300*200，相关元素的尺寸都是按照这个设置的。 -->
+<style>
+html,body{
+	height:100%;
+}
+body,div,img{
+	margin:0;
+	padding:0;
+}
+body{
+	background:black;
+	overflow:hidden;
+}
+#box{
+	position:absolute;
+}
+/*一个wrap就是一张图片，图片倒影和倒影渐变的综合体*/
+#box .wrap{
+	position:absolute;
+	height:600px;
+}
+#box .wrap .image{
+	position:absolute;
+	width:300px;
+	height:200px;
+	left:0;
+	top:0;
+}
+/*这就是下边的整个倒影*/
+#box .wrap .down{
+	position:absolute;
+	left:0; top:200px;
+} 
+#box .down .reflection{
+	width:300px;
+	height:200px;
+	-webkit-transform: scaleY(-1); 
+	-moz-transform: scaleY(-1); 
+	-ms-transform: scaleY(-1); 
+	-o-transform: scaleY(-1); 
+	transform: scaleY(-1); 
+	opacity:0.5; 
+	filter:alpha(opacity='50'); 
+}
+/*这是倒影中产生渐变的一层，在倒影的下半部分*/
+#box .down .overlay{
+	position:absolute;
+	bottom:0;
+	width:300px;
+	height:100px; 
+	background-image: -moz-linear-gradient(center bottom, rgb(0,0,0) 20%, rgba(0,0,0,0) 90%); 
+	background-image: -o-linear-gradient(rgba(0,0,0,0) 10%, rgb(0,0,0) 30%); 
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.20, rgb(0,0,0)), color-stop(0.90, rgba(0,0,0,0))); 
+	filter: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColor=0, EndColorStr=#000000); 
+}
+#info{
+	position:absolute;
+	right:0;
+	bottom:0;
+	width:200px;
+	height:80px;
+	background:#3CF;
+	color:#fff;
+	font-size:20px;
+}
+</style>
+</head>
+
+<body>
+<div id="box">
+	<!--第一张图片开始 -->
+    <div class="wrap"> 
+        <div class="image">
+            <img src="../images/HTML5WorksInvertedImg/1.jpg">
+        </div> 
+        <div class="down"> 
+            <div class="reflection"></div> 
+            <div class="overlay"></div> 
+        </div>
+    </div>
+    <!--第一张图片结束 -->
+    <!--第二张图片开始 -->
+    <div class="wrap"> 
+        <div class="image">
+            <img src="../images/HTML5WorksInvertedImg/2.jpg">
+        </div> 
+        <div class="down"> 
+            <div class="reflection"></div> 
+            <div class="overlay"></div> 
+        </div>
+    </div>
+    <!--第二张图片结束 -->
+    <!--第三张图片开始 -->
+    <div class="wrap"> 
+        <div class="image">
+            <img src="../images/HTML5WorksInvertedImg/3.jpg">
+        </div> 
+        <div class="down"> 
+            <div class="reflection"></div> 
+            <div class="overlay"></div> 
+        </div>
+    </div>
+    <!--第三张图片结束 -->
+    <!--第四张图片开始 -->
+    <div class="wrap"> 
+        <div class="image">
+            <img src="../images/HTML5WorksInvertedImg/4.jpg">
+        </div> 
+        <div class="down"> 
+            <div class="reflection"></div> 
+            <div class="overlay"></div> 
+        </div>
+    </div>
+    <!--第四张图片结束 -->
+    <!--第五张图片开始 -->
+    <div class="wrap"> 
+        <div class="image">
+            <img src="../images/HTML5WorksInvertedImg/5.jpg">
+        </div> 
+        <div class="down"> 
+            <div class="reflection"></div> 
+            <div class="overlay"></div> 
+        </div>
+    </div>
+    <!--第五张图片结束 -->
+    <!--第六张图片开始 -->
+    <div class="wrap"> 
+        <div class="image">
+            <img src="../images/HTML5WorksInvertedImg/6.jpg">
+        </div> 
+        <div class="down"> 
+            <div class="reflection"></div> 
+            <div class="overlay"></div> 
+        </div>
+    </div>
+    <!--第六张图片结束 -->
+    <!--第七张图片开始 -->
+    <div class="wrap"> 
+        <div class="image">
+            <img src="../images/HTML5WorksInvertedImg/7.jpg">
+        </div> 
+        <div class="down"> 
+            <div class="reflection"></div> 
+            <div class="overlay"></div> 
+        </div>
+    </div>
+    <!--第七张图片结束 -->
+    <!--第八张图片开始 -->
+    <div class="wrap"> 
+        <div class="image">
+            <img src="../images/HTML5WorksInvertedImg/8.jpg">
+        </div> 
+        <div class="down"> 
+            <div class="reflection"></div> 
+            <div class="overlay"></div> 
+        </div>
+    </div>
+    <!--第八张图片结束 -->
+    <!--第九张图片开始 -->
+    <div class="wrap"> 
+        <div class="image">
+            <img src="../images/HTML5WorksInvertedImg/9.jpg">
+        </div> 
+        <div class="down"> 
+            <div class="reflection"></div> 
+            <div class="overlay"></div> 
+        </div>
+    </div>
+    <!--第九张图片结束 -->
+</div>
+<p id="info">几乎所有版本的IE浏览器都不能很好的支持此效果……</p>
+<script>
+/*通过class名获取元素*/
+function getByClass(oParent, sClass){
+	var aEle=oParent.getElementsByTagName('*');
+	var aResult=[];
+	var i=0;
+
+	for(i=0;i<aEle.length;i++){
+		if(aEle[i].className==sClass){
+			aResult.push(aEle[i]);
+		}
+	}
+	return aResult;
+}
+window.onload = function(){
+	var oBox = document.getElementById('box');
+	var aWrap = getByClass(oBox,'wrap');
+	var aReflect = getByClass(oBox,'reflection');
+	//dis表示图片之间的距离，第一张图片的左边距是负的dis，这样再加上dis，第一张图片的左边距就是0
+	var dis = 100;
+	var iLeft = -dis;
+	//固定图片的显示宽度
+	var iWidth = 300;
+	//最外层包裹层的水平位置
+	var iCenterLeft = 0;
+	var iStartNow = 0;
+	//可视区宽度和高度
+	var fullHeight = document.documentElement.clientHeight;
+	var fullWidth = document.documentElement.clientWidth;
+	/*遍历所有的图片整体并判断，位于最中间的怎么样，位于最中间的左边的怎么样，位于最中间的右边的怎么样*/
+	for(var i=0; i<aWrap.length; i++){
+		iLeft+=dis;
+		aWrap[i].style.width = iWidth+'px';
+		//位于中间图片左侧的图片
+		if(i<Math.floor(aWrap.length/2)){
+			aWrap[i].style.left = iLeft+'px';
+			aWrap[i].style['transform'] = "rotateY(30deg) translateZ(-100px)";
+		}
+		//位于中间图片右侧的图片
+		else if(i>Math.floor(aWrap.length/2)){
+			aWrap[i].style.left = iLeft+'px';
+			aWrap[i].style['transform'] = "rotateY(-30deg) translateZ(-100px)";
+		}
+		//最中间的图片
+		else{
+			iLeft+=dis;
+			aWrap[i].style.left = (iLeft-200)+'px';
+			//设置包裹层水平方向的位置，让最中间图片的中心线跟浏览器窗口的中心线对齐
+			/*浏览器宽度的一半减去中间图片宽度的一半再减去中间图片离box的左边距*/
+			iCenterLeft = (fullWidth/2)-(iLeft+aWrap[i].offsetWidth/2);
+			iLeft+=dis;
+			iStartNow = i;
+			aWrap[i].style['transform'] = "translateZ(150px)";
+		}
+		aWrap[i].index = i;
+		aWrap[i].onclick = function(){
+			var iLeft = -(this.index-iStartNow)*dis;
+			tab(aWrap,dis,iLeft,this.index)
+		};
+	}
+	//设置倒影层的背景图片，跟上面显示的背景图片一一对应
+	for(var i=0; i<aReflect.length; i++){
+		aReflect[i].style.background = 'url(../images/HTML5WorksInvertedImg/'+(i+1)+'.jpg)';
+	}
+	
+	//设置最外层包裹层的高度和竖直方向位置，实现在浏览器窗口中垂直居中，包裹层的高度是400像素
+	oBox.style.height = '400px';
+	oBox.style.top = (fullHeight-380)/2+'px';
+	oBox.style.left = iCenterLeft+'px';
+	//给最外层的box加上景深
+	oBox.style.perspective = '600px';
+	oBox.style.transformStyle = 'preserve-3d';
+	
+};
+function tab(aWrap,dis,iLeft,iNow){
+	
+	iLeft-=dis;
+	/*遍历所有的图片整体并判断，位于最中间的怎么样，位于最中间的左边的怎么样，位于最中间的右边的怎么样*/
+	for(var i=0; i<aWrap.length; i++){
+		aWrap[i].style.transition = "1s all ease";
+		iLeft+=dis;
+		//位于中间图片左侧的图片
+		if(i<iNow){
+			aWrap[i].style.left = iLeft+'px';
+			aWrap[i].style['transform'] = "rotateY(30deg) translateZ(-100px)";
+		}
+		//位于中间图片右侧的图片
+		else if(i>iNow){
+			aWrap[i].style.left = iLeft+'px';
+			aWrap[i].style['transform'] = "rotateY(-30deg) translateZ(-100px)";
+		}
+		//最中间的图片
+		else{
+			iLeft+=dis;
+			aWrap[i].style.left = (iLeft-200)+'px';
+			//设置包裹层水平方向的位置，让最中间图片的中心线跟浏览器窗口的中心线对齐
+			iLeft+=dis;
+			aWrap[i].style['transform'] = "translateZ(150px)";
+		}
+	}
+}
+</script>
+</body>
+</html>

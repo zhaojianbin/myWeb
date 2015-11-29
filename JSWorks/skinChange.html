@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>网页换肤</title>
+<style>
+/*清除默认样式*/
+body,ul,li,p,div,a{margin:0; padding:0;}
+/*设置全局字体*/
+body{font-size:16px; font-family: 'Microsoft Yahei', sans-serif; letter-spacing:2px;}
+/*清除圆点*/
+li{list-style-type:none;}
+/*清除下划线*/
+a{text-decoration:none;}
+/*鼠标移入加上下划线*/
+a:hover{text-decoration:underline;}
+/*给外层包裹的div设置定位和宽高，*/
+#wrap{
+	position:relative;
+	left:450px;
+	top:30px;
+	width:500px; 
+	height:500px; 
+	overflow:hidden;
+}
+/*定位换肤按钮*/
+/*这两句就能解决子元素浮动之后包不住的情况，注意是给父元素加*/
+#skin,#nav{overflow:hidden;zoom:1;}
+
+#skin{
+	position:absolute;
+	left:200px;
+	top:0;
+}
+#skin li{
+	float:left;
+	width:6px;
+	height:6px;
+	cursor:pointer;
+	margin-right:10px;
+	text-indent:-9999px;
+	border-width:4px;
+	border-style:solid;
+}
+/*定义不在活动状态下的换肤按钮的背景颜色*/
+#skin li.current{
+	background:#fff;
+}
+/*设置换肤按钮的默认样式*/
+#red{border-color:red;background:red;}
+#green{border-color:green;background:green;}
+#blue{border-color:blue;background:blue;}
+#purple{border-color:#c3c;background:#c3c;}
+/*定义下面导航列表的样式*/
+#nav{
+	position:absolute;
+	left:2px;;
+	top:30px;
+	border:1px solid #fff;
+}
+#nav li{
+	float:left;
+	width:81px;
+	height:25px;
+	line-height:25px;
+	text-align:center;
+	border-right:1px solid #fff;
+}
+/*下面这一行是因为不能平均分配好列表的宽度，所以要让最后一个稍微宽一点*/
+#nav li.last{width:83px;border-right-width:0;}
+/*这是设置链接的颜色*/
+#nav li a{color:#fff;}
+/*模拟新闻区域*/
+#news{
+	position:absolute;
+	left:0; bottom:0;
+	width:500px;
+	height:420px;
+}
+#news p{
+	position:absolute;
+	display:none;
+	left:0; top:0;
+	width:500px;
+	height:420px;
+	font-size:30px;
+	opacity:0.5;
+	filter:alpha(opacity:50);
+	text-align:center;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="../css/JSWorksSkinChange/green.css">
+</head>
+
+<body>
+<div id="wrap">
+	<!--换肤按钮 -->
+    <ul id="skin">
+        <li id="red" title="红色">红色</li>
+        <li id="green" title="绿色"  class="current">绿色</li>
+        <li id="blue" title="蓝色">蓝色</li>
+        <li id="purple" title="紫色">紫色</li><!--这是为了一刷新默认有个空白背景-->
+    </ul>
+    <!--导航列表 -->
+    <ul id="nav">
+        <li><a href="javascript:;">科技</a></li>
+        <li><a href="javascript:;">综艺</a></li>
+        <li><a href="javascript:;">体育</a></li>
+        <li><a href="javascript:;">电影</a></li>
+        <li><a href="javascript:;">音乐</a></li>
+        <li class="last"><a href="javascript:;">财经</a></li>
+    </ul>
+    <!--新闻内容 -->
+    <div id="news">
+        <p style="display:block;">这里放科技新闻<br>联想微软苹果三星</p>
+        <p>这里放综艺新闻<br>快乐大本营,中国好声音</p>
+        <p>这里放体育新闻<br>姚明，李娜，C罗，博尔特</p>
+        <p>这里放电影新闻<br>好莱坞，金像奖</p>
+        <p>这里放音乐新闻<br>摇滚，爵士</p>
+        <p>这里放财经新闻<br>央行，股票，利率</p>
+    </div>
+</div>
+<script>
+window.onload = function(){
+	//获取用来引入css的link标签
+	var oLink = document.getElementsByTagName('link')[0];
+	//获取换肤按钮
+	var aSkin = document.getElementById('skin').getElementsByTagName('li');
+	//获取导航列表
+	var aNav = document.getElementById('nav').getElementsByTagName('li');
+	//获取新闻列表
+	var aNews = document.getElementById('news').getElementsByTagName('p');
+	//循环遍历换肤按钮
+	for(var i=0; i<aSkin.length; i++){
+		//给换肤按钮添加点击事件
+		aSkin[i].onmousedown = function(){
+			//先让所有的换肤按钮的样式变成默认的。
+			for(var p in aSkin) aSkin[p].className = '';
+			//然后把活动状态下的换肤按钮，也就是当前点击的按钮的背景变成白色
+			this.className = 'current';
+			//引入不同的css文件，默认是绿色
+			oLink.href = '../css/JSWorksSkinChange/'+this.id + '.css';
+			
+		};
+	}
+	//导航列表的内容切换
+	for(var i=0; i<aNav.length; i++){
+		aNav[i].index = i;
+		aNav[i].onmousedown = function(){
+			//内层循环的目的就是让所有的都隐藏，然后点击的时候，让对应按钮的那一条显示
+			for(var j=0; j<aNews.length; j++){
+				aNews[j].style.display = 'none';
+			}
+			aNews[this.index].style.display = 'block';
+		};
+	}
+};
+</script>
+
+</body>
+</html>

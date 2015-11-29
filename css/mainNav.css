@@ -1,0 +1,67 @@
+/*顶部主导航开始*/
+#mainNav{
+	position:relative;
+	width:1002px;
+	height:80px;
+	margin:0 auto;
+	box-shadow:3px 3px 3px;
+	border-radius:10px;
+	z-index:1900;
+}
+#mainNav .myLogo{
+	position:absolute;
+	left:6px;
+	top:0;
+	float:left;
+	width:290px;
+	height:78px;
+	font-size:30px;
+	opacity:0.6;
+	filter:alpha(opacity:60);
+	background:url(../images/indexLayout/logo.png);
+}
+#mainNav .pagesNav{
+	float:right;
+	width:700px;
+	height:80px;
+}
+
+#mainNav .pagesNav li{
+	float:left;
+	width:165px;
+	height:80px;
+	border-left:8px solid black;
+	border-radius:8px;
+}
+#mainNav .pagesNav a{
+	display:block;
+	width:165px;
+	height:80px;
+	line-height:80px;
+	font-size:22px;
+	text-align:center;
+	color:#333;
+}
+#mainNav .pagesNav a#current{
+	color:#fff;
+}
+#mainNav .pagesNav a:hover{
+	color:#fff;
+}
+
+#mainNavBtn{
+	position:absolute;
+	/*ie浏览器运行脚本需要点一下同意，设置这两个位置主要是为了
+	在用户点击同意之前把滑块放在导航栏中，具体的数值top为0，left可以随意
+	超过导航栏最左边距离屏幕最左边的距离即可*/
+	left:600px;top:0;
+	display:block;
+	width:165px;
+	height:80px;
+	opacity:0.7;
+	filter:alpha(opacity:70);
+	background:url(../images/JSWorksMain/mainNavBtn.png) no-repeat;
+	z-index:1800;
+}
+/*顶部主导航结束*/
+

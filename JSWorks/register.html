@@ -1,0 +1,442 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>用户注册验证</title>
+<style>
+body,p,form,ul,li{
+	margin:0;
+	padding:0;
+}
+body {
+	color:#000;
+	background:#ced7df;
+	font-size:14px;
+	font-family:'Microsoft Yahei', sans-serif;
+}
+li{
+	list-style:none;
+}
+/*用户注册四个字*/
+h1{
+	width:160px;
+	margin:30px auto;
+	font-size:40px;
+	color:#333;
+}
+/*包裹整个表单的大div*/
+#content{
+	position:relative;
+	width:800px;
+	margin:0 auto;
+	padding:10px;
+	background:#fff;
+}
+fieldset{
+	border:1px solid #ccc;
+	padding:15px 10px 15px 10px;
+	margin:0 0 10px 0;
+}
+legend{
+	color:#FFFFFF;
+	background-color:#0fcdf6;
+	padding:2px 5px 2px 5px;
+}
+/*选填内容的标题*/
+legend.optional{
+	color:#FFFFFF;
+	background-color:#50c150;
+	padding:2px 5px 2px 5px;
+}
+
+/*每个表单行的样式*/
+.row {
+	clear: both;
+	float:left;
+	/*padding是分开每一行的距离*/
+	padding:5px 5px 5px 5px;
+}
+/*下方的行业选择区域*/
+.row-select {
+	clear: both;
+	float:left;
+	padding:10px 10px 5px;
+}
+.label {
+	width:100px;
+	float:left;
+	line-height:25px;
+}
+/*还是下方的行业选择区域*/
+label.left{
+	padding:0 20px 0 5px;
+	float:left;
+	color:#666666;
+}
+.widget {
+	float:left;
+}
+/*必填项的文本框*/
+input.required{
+	width:300px;
+	height:22px;
+	border: 1px solid #95E0EF;
+	background-color:#f3fcfe;
+	/*左边框多了一个像素，产生了左边粗的效果*/
+	border-left-width:2px;
+	padding:5px 0 0 2px;
+	float:left;
+}
+/*选填项的文本框*/
+input.optional{
+	width:300px;
+	height:22px;
+	border: 1px solid #adedad;
+	background-color:#FF9;
+	border-left-width:2px;
+	padding:5px 0 0 2px;
+}
+/*选择地区的下拉列表*/
+select.selection{
+	/*注意这个下拉列表是怎么跟其他元素对齐的，宽度多了3个像素，它们都浮动起来了*/
+	width:305px;
+	height:28px;
+	border: 1px solid #95E0EF;
+	background-color:#f3fcfe;
+	border-left-width:2px;
+	padding:4px 2px 3px 2px;
+	float:left;
+}
+/*简要介绍*/
+textarea{
+	width:300px;
+	height:75px;
+	border: 1px solid #adedad;
+	background-color:#f3fef3;
+	border-left-width:2px;
+}
+/*提交按钮*/
+input.submit{
+	width:100px;
+	color:#fff;
+	background-color:#0fcdf6;
+	padding:2px 5px 2px 5px;
+	cursor:pointer;
+	border:none;
+}
+
+
+/*提示信息和错误信息的普遍样式*/
+span.info,span.error,span.succ{
+	display:block;
+	font-size:12px;
+	color:#333;
+	width:170px;
+	height:32px;
+	line-height:18px;
+	margin-left:10px;
+	letter-spacing:1px;
+	padding:8px 0 0 30px;
+	display:none;
+}
+/*提示信息的默认背景*/
+span.info{
+	background:url(../images/JSWorksReg/reg_info.png) no-repeat;
+}
+/*错误信息的默认背景*/
+span.error{
+	position:absolute;
+	left:435px; top:55px;
+	background:url(../images/JSWorksReg/reg_error.png) no-repeat;
+	display:none;
+}
+/*可用信息的默认样式*/
+span.succ{
+	position:absolute;
+	left:435px; top:65px;
+	height:14px;
+	line-height:14px;
+	padding:0 0 0 20px;
+	color:green;
+	background:url(../images/JSWorksReg/reg_succ.png) no-repeat;
+	display:none;
+}
+/*用户名*/
+span.infoUser{
+	position:absolute;
+	left:435px; top:50px;
+	display:block;
+	font-size:12px;
+	color:#333;
+	width:170px;
+	height:42px;
+	line-height:18px;
+	margin-left:10px;
+	padding:8px 0 0 30px;
+	background:url(../images/JSWorksReg/reg_info2.png) no-repeat;
+	display:none;
+}
+/*密码*/
+span.infoPass{
+	position:absolute;
+	left:435px; top:55px;
+	width:250px;
+	height:160px;
+	padding-left:15px;
+	background:url(../images/JSWorksReg/reg_info3.png) no-repeat;
+}
+span.infoPass p{
+	height:20px;
+	line-height:20px;
+	color:#666;
+	padding:0;
+}
+span.infoPass p .s{
+	color:#ccc;
+}
+span.errorPass{
+	top:90px;
+	background:url(../images/JSWorksReg/reg_error.png) no-repeat;
+}
+span.succPass{
+	top:100px;
+	height:14px;
+	line-height:14px;
+	padding:0 0 0 20px;
+	color:green;
+	background:url(../images/JSWorksReg/reg_succ.png) no-repeat;
+}
+/*确认密码*/
+span.infoConfirm{
+	position:absolute;
+	left:435px; top:130px;
+}
+span.errorConfirm{
+	position:absolute;
+	left:435px; top:130px;
+}
+span.succConfirm{
+	position:absolute;
+	left:435px; top:140px;
+}
+/*密保问题提示*/
+span.errorQues{
+	position:absolute;
+	left:435px; top:210px;
+}
+/*密保问题答案*/
+span.infoAns{
+	position:absolute;
+	left:435px; top:245px;
+}
+span.errorAns{
+	position:absolute;
+	left:435px; top:245px;
+}
+span.succAns{
+	position:absolute;
+	left:435px; top:255px;
+}
+/*电子邮箱*/
+span.infoEmail{
+	position:absolute;
+	left:435px; top:170px;
+}
+span.errorEmail{
+	position:absolute;
+	left:435px; top:170px;
+}
+span.succEmail{
+	position:absolute;
+	left:435px; top:180px;
+}
+/*电子邮箱后缀*/
+#wrapLay{
+	display:none;
+	position:absolute;
+	left:126px; top:200px;
+	width:310px;
+	height:150px;
+}
+#houzhui{
+	display:none;
+	position:absolute;
+	left:0; top:0;
+	width:283px;
+	height:150px;
+	padding:5px 10px;
+	border:1px solid #ccc;
+	background:#fff;
+}
+#houzhui li{
+	height:25px;
+	line-height:25px;
+	padding:0 5px;
+	cursor:pointer;
+	border-bottom:1px solid #95e0ef;
+}
+/*生日*/
+#birthday{
+	width:500px;
+	height:20px;
+}
+#birthday select{
+	margin:0 10px;
+	width:90px;
+	height:20px;
+}
+/*补充说明信息*/
+.beizhu{
+	position:absolute;
+	display:none;
+	left:250px; top:650px;
+}
+.beizhu strong.num{
+	padding:0 3px;
+}
+.beizhu span.clean{
+	font-weight:bold;
+	font-size:16px;
+	color:#06f;
+	cursor:pointer;
+}
+</style>
+</head>
+<body>
+	<h1>用户注册</h1>
+    <div id="overLay"></div>
+	<div id="content">
+    <form name="reg" action="1.php" method="get">
+    <fieldset>
+        <legend>设置账号内容</legend>
+        
+        <div class="row">
+            <div class="label">用户名:</div>
+            <div class="widget"><input name="user" class="required"></div>
+            <span class="info infoUser">用户名2到10位，由字母，数字和下划线组成</span>
+            <span class="error errorUser">输入不合法，请重新输入</span>
+            <span class="succ succUser">可用</span>
+        </div>
+                   
+        <div class="row">
+            <div class="label">密码:</div>
+            <div class="widget"><input type="password" name="pass" class="pass required"></div>
+            <span class="infoPass info ">
+            	<p>安全级别<strong class="s s1">■</strong><strong class="s s2">■</strong><strong class="s s3">■</strong><strong class="s s4" style="font-weight:normal;"></strong></p>
+                <p><strong class="q1" style="font-weight:normal;">○</strong> 6-20个字符</p>
+                <p><strong class="q2" style="font-weight:normal;">○</strong>由大小写字母和数字组成，不能有空格</p>
+                <p><strong class="q3" style="font-weight:normal;">○</strong>大小写字母，数字，非空字符两种以上</p>
+            </span>
+            <span class="error errorPass">输入不合法，请重新输入</span>
+            <span class="succ succPass">可用</span>
+        </div>
+          
+        <div class="row">
+            <div class="label">确认密码:</div>
+            <div class="widget"><input type="password" name="confirmPass" class="required passConfirm"></div>
+            <span class="info infoConfirm">请再一次输入密码</span>
+            <span class="error errorConfirm">两次密码不一致，请重新输入</span>
+            <span class="succ succConfirm">可用</span>
+        </div> 
+        <div class="row">
+            <div class="label">电子邮箱:</div>
+            <div class="widget"><input name="email" autocomplete="off" class="required"></div>
+            <span class="info infoEmail">请输入电子邮箱地址</span>
+            <span class="error errorEmail">邮件格式不合法，请重新输入</span>
+            <span class="succ succEmail">可用</span>
+            <div id="wrapLay">
+                <ul id="houzhui">
+                    <li><span></span>@163.com</li>
+                    <li><span></span>@sina.com</li>
+                    <li><span></span>@qq.com</li>
+                    <li><span></span>@126.com</li>
+                    <li><span></span>@gmail.com</li>
+                    <li><span></span>@sohu.com</li>
+                </ul>
+            </div>
+        </div> 
+        
+        <div class="row">
+            <div class="label">密保问题:</div>
+            <div class="widget">
+                <select name="ques" class="selection">
+                    <option>-------------------------请选择-------------------------</option>
+                    <option>您的出生地是</option>
+                    <option>您父亲的生日是</option>
+                    <option>您的学号(工号)是</option>
+                    <option>您配偶的姓名是</option>
+                     <option>您小学班主任的名字是</option>
+                </select>
+                <span class="error errorQues">尚未选择密保问题，请选择！</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="label">密保问题答案:</div>
+            <div class="widget"><input name="ans" class="required"></div>
+            <span class="info infoAns">请输入答案，2-32位</span>
+            <span class="error errorAns">回答不合法，请重新输入</span>
+            <span class="succ succAns">可用</span>
+        </div> 
+    </fieldset>  
+    <fieldset>
+        <legend class="optional">选填内容</legend>
+        <div class="row">
+            <div class="label">您的生日:</div>
+            <div id="birthday">
+            	<select name="year">
+                	<option>--请选择--</option>
+                </select>年
+            	<select name="month">
+                	<option>--请选择--</option>
+                </select>月
+            	<select name="day">
+                	<option>--请选择--</option>
+                </select>日
+            </div>
+        </div>
+        <div class="row-select">
+
+            <fieldset>
+                <legend class="optional">行业</legend>
+                <label class="left">
+                <input type="radio" class="radio" name="field11" >农牧业<br>
+                <input type="radio" class="radio" name="field11" >渔业<br>
+                <input type="radio" class="radio" name="field11" >矿业<br>
+                <input type="radio" class="radio" name="field11" >交通运输<br>    
+                <input type="radio" class="radio" name="field11" >餐饮<br>
+               
+                </label>
+                <label class="left">
+                 <input type="radio" class="radio" name="field11" >旅游<br>
+                <input type="radio" class="radio" name="field11" >土木工程<br>
+                <input type="radio" class="radio" name="field11" >制造业<br>
+                <input type="radio" class="radio" name="field11" >新闻出版<br>
+                <input type="radio" class="radio" name="field11" >卫生
+                </label>
+                
+                <label class="left">
+                <input type="radio" class="radio" name="field11">教育 <br>
+                <input type="radio" class="radio" name="field11" >娱乐<br>
+                <input type="radio" class="radio" name="field11" >商业 <br>
+                <input type="radio" class="radio" name="field11" >服务业<br>    
+                <input type="radio" class="radio" name="field11" >其他……<br>
+               
+                </label> 
+            </fieldset> 
+         
+        </div>
+        <div class="row">
+            <div class="label">补充说明信息：</div>
+            <div class="widget"><textarea name="addInfo"></textarea></div>
+            <div class="beizhu" style="display:block;">还可以输入<strong class="num">30</strong>个字</div>
+            <div class="beizhu">已超过<strong class="num"></strong>个字<span class="clean">清除</span>多余内容</div>
+        </div>
+        
+    </fieldset>
+    <input type="button" class="submit" value="提交">
+    </form>
+    </div>
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="../js/JSWorksReg.js"></script>
+</body>
+</html>

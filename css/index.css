@@ -1,0 +1,576 @@
+/*****************整个大的包裹框******************/
+#container{
+	position:relative;
+	width:1002px;
+	height:612px;
+	margin:0 auto;
+}
+/******************名字区开始*********************/
+#container .myName{
+	position:absolute;
+	left:0;
+	top:0;
+	width:350px;
+	height:160px;
+	font-size:100px;
+	cursor:default;
+	letter-spacing:10px;
+}
+#container .coverName{
+	position:absolute;
+	left:0;
+	top:0;
+	width:350px;
+	height:0;
+	font-size:100px;
+	cursor:default;
+	letter-spacing:10px;
+	color:#4eacff;
+}
+/*****************名字区结束***********************/
+/*****************导航区域开始*********************/
+#container .nav{
+	position:absolute;
+	left:0;
+	top:200px;
+	width:350px;
+	height:350px;
+}
+#container .nav li{
+	width:200px;
+	height:50px;
+	line-height:45px;
+	margin-bottom:10px;
+	text-align:center;
+	border-radius:8px; 
+	cursor:pointer;
+	background:#fff;
+	opacity:0.5;
+	filter:alpha(opacity:50);
+}
+#container .nav li a{
+	width:200px;
+	font-size:20px;
+	font-weight:bolder;
+	color:black;
+}
+#container .nav li a.newPage{
+	display:block;
+}
+/*****************导航区域结束*********************/
+
+
+/*****************播放器开始**********************/
+#wrapMp3{
+	position:absolute;
+	right:20px;
+	bottom:10px;
+	width:600px; 
+	height:40px; 
+	background:#76b852; 
+	opacity:0.9;
+	filter:alpha(opacity:90);
+	border-radius:10px; 
+	/*外层加边框是为了margin-top的效果正常*/
+	border:1px solid #76b852;
+	box-shadow:2px 2px 3px 3px #111;
+}
+#wrapMp3 .wraplay{
+	float:left;
+	width:28px;
+	height:50px;
+}
+.playing{
+	width:0;
+	height:0;
+	float:left;
+	margin-top:8px;
+	margin-left:10px;
+	cursor:pointer;
+	border-left:18px solid #fff;
+	border-top:12px solid rgba(255,255,255,0);
+	border-bottom:12px solid rgba(255,255,255,0);
+}
+.pause{
+	width:8px;
+	height:22px;
+	float:left;
+	margin-top:10px;
+	margin-left:10px;
+	cursor:pointer;
+	border-left:4px solid #fff;
+	border-right:4px solid #fff;
+}
+#progress{
+	position:relative;
+	float:left;
+	width:70%;
+	height:8px;
+	margin-top:16px;
+	margin-left:16px;
+	border-radius:5px; 
+	box-shadow:1px 1px 2px 2px #232;
+	background:#fff;
+}
+#progress .bar{
+	display:inline-block;
+	position:absolute;
+	top:0;
+	left:0;
+	width:0%;
+	height:100%;
+	border-radius:3px; 
+	background:#ccc;
+}
+#progress .proBtn{
+	position:absolute;
+	left:0;
+	top:-4px;
+	width:18px;
+	height:18px;
+	/*宽度百分百就是圆*/
+	border-radius:100%;
+	cursor:pointer;
+	background:#fff;
+	box-shadow:1px 1px 2px 2px #132;
+}
+.soundon{
+	width:10px;
+	height:8px;
+	float:left;
+	margin-top:8px;
+	margin-left:2px;
+	cursor:pointer;
+	border-right:20px solid #fff;
+	border-top:8px solid rgba(255,255,255,0);
+	border-bottom:8px solid rgba(255,255,255,0);
+}
+.soundoff{
+	border-right:20px solid #999;
+}
+#volume{
+	position:relative;
+	float:left;
+	width:15%;
+	height:5px;
+	margin-top:16px;
+	margin-left:5px;
+	border-radius:5px; 
+	box-shadow:1px 1px 2px 2px #232;
+	background:#fff;
+}
+#volume .volumeBar{
+	display:inline-block;
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	border-radius:3px; 
+	background:#ccc;
+}
+#volumeBtn{
+	position:absolute;
+	left:0;
+	top:-4px;
+	width:15px;
+	height:15px;
+	border-radius:100%;
+	cursor:pointer;
+	background:#fff;
+	box-shadow:1px 1px 2px 2px #132;
+}
+/************************播放器结束********************/
+
+/************************图片轮播开始******************/
+.play {
+	position:absolute;
+	right:30px;
+	top:70px;
+	width:580px; 
+	height:470px;
+	border-radius:5px;
+	background:#aaa;
+}
+/*它的尺寸就是每张大图的尺寸
+*宽度就是盒子的宽度
+*它的高度比整个盒子小了110像素
+*/
+.bigPic {
+	position:relative; 
+	width:580px; 
+	height:360px;
+	overflow:hidden; 
+	background:#222; 
+}
+/*它的尺寸和上面包裹它的ul的尺寸一样
+*初始化的时候大图所有li的层级都是0，
+第一个li的层级是1
+*/
+.bigPic li {
+	position:absolute;
+	left:0;
+	top:0;
+	width:580px; 
+	/*这个高度是图片向下运动的时候到达的目标高度*/
+	height:360px; 
+	overflow:hidden; 
+	z-index:0; 
+	background:url(../images/indexImgPlay/loading.gif) no-repeat center center;
+}
+/*大图宽度的一半，为鼠标移入显示按钮服务*/
+.markLeft {
+	position:absolute; 
+	left:0; 
+	top:0;
+	width:290px; 
+	height:360px;
+	opacity:0; 
+	filter:alpha(opacity:0); 
+	z-index:3000; 
+}
+/*大图宽度的一半，为鼠标移入显示按钮服务*/
+.markRight {
+	position:absolute; 
+	left:290px; 
+	top:0;
+	width:290px; 
+	height:360px; 
+	opacity:0; 
+	filter:alpha(opacity:0); 
+	z-index:3000; 
+}
+/*向前滚动和向后滚动的按钮的初始透明度是0，不显示*/
+.bigPic .prev {
+	position:absolute;
+	left:10px;
+	top:130px;
+	width:60px; 
+	height:60px; 
+	background:url(../images/indexImgPlay/btn.gif) no-repeat; 
+	/*按钮的层级必须比遮罩高，这样才能点到按钮*/
+	z-index:3001; 
+	opacity:0;
+	filter:alpha(opacity:0);
+}
+.bigPic .next {
+	position:absolute;
+	right:10px;
+	top:130px;
+	width:60px; 
+	height:60px; 
+	background:url(../images/indexImgPlay/btn.gif) no-repeat 0 -60px; 
+	/*按钮的层级必须比遮罩高，这样才能点到按钮*/
+	z-index:3001; 
+	opacity:0; 
+	filter:alpha(opacity:0); 
+}
+
+#text {
+	position:absolute; 
+	left:10px;
+	bottom:4px; 
+	font-size:16px;
+	color:#ddd;
+	z-index:3000; 
+}
+#length {
+	position:absolute; 
+	right:10px; 
+	bottom:4px; 
+	font-size:16px;
+	color:#ddd; 
+	z-index:3000;
+}
+
+.bigPic .bg {
+	position:absolute;
+	left:0;
+	bottom:0;
+	width:580px; 
+	height:30px; 
+	background:#000; 
+	filter:alpha(opacity=60); 
+	opacity:0.6;  
+	/*背景的层级比文字的层级低*/
+	z-index:2999;
+}
+/*
+*剩余的高度是110像素，它占用了94
+*还有16像素的高,用作上下灰色边框
+*所以从上面向下走了八个像素
+宽度一共580，要放四张图和五个边框
+*边框全是8，图片宽度135
+*/
+.smallPic {
+	width:564px; 
+	height:94px; 
+	position:relative; 
+	top:8px; 
+	left:8px; 
+	overflow:hidden;
+}
+/*ul的尺寸同样跟包裹它的小图盒子的尺寸一样*/
+.smallPic ul {
+	position:absolute; 
+	top:0; 
+	left:0;
+	height:94px; 
+	overflow:hidden;
+}
+
+.smallPic li {
+	width:135px; 
+	height:94px; 
+	float:left; 
+	padding-right:8px; 
+	background:url(../images/indexImgPlay/loading.gif) no-repeat center center; 
+	cursor:pointer;
+	/*小图的初始不透明度是0.45,移入移出的时候需要用这个值*/ 
+	filter:alpha(opacity=45); 
+	opacity:0.45; 
+}
+.smallPic img {
+	width:135px; 
+	height:94px;
+}
+/********************************图片轮播区域结束**************************/
+
+/********************************个人介绍开始*****************************/
+/*放大镜开始*/
+#aboutMe{
+	position:relative;
+	width:1002px;
+	height:500px;
+	margin:0 auto;
+	background:#59626a;
+}
+/*放大镜效果,两张图最好是等比例，其他无所谓
+最外层包裹的div的尺寸是小图的尺寸*/
+#magnifier{ 
+	position:absolute;
+	left:350px; top:20px;
+	width: 280px; 
+	height: 80px;
+	z-index:200;
+}
+/*包裹小图的div的尺寸当然就是小图的尺寸*/
+#magnifier .smallPic{ 
+	position:absolute;
+	left:0; top:0;
+	width:280px; 
+	height:80px;
+}
+/*小图上漂浮的指示位置的小框*/
+#magnifier .floatLayer{
+	position: absolute;
+	top:0; left:0;
+	display:none;
+	width:50px; 
+	height:50px; 
+	border:1px solid #000; 
+	background:black; 
+	filter:alpha(opacity:30); 
+	opacity:0.3; 
+}
+/*完全覆盖最外层包裹层的一层*/
+#magnifier .mark {
+	position:absolute;
+	left:0px; top:0px; 
+	width:100%; 
+	height:100%;  
+	z-index:10; 
+	filter:alpha(opacity:0); 
+	opacity:0;
+}
+#magnifier .smallPic img{
+	display:block;
+	width:280px;
+	height:80px;
+}
+/*放大镜大图区域，上下跟小图对齐，左右在小图旁边
+*/
+#magnifier .bigPic {
+	position: absolute; 
+	left:300px; top:0;
+	display:none;
+	width:300px; 
+	height:140px;
+	background:red;
+	overflow:hidden; 
+	border:2px solid #CCC;
+}
+#magnifier .bigPic img {
+	position:absolute; 
+	top:0; left:0;
+}
+/*放大镜结束*/
+/*我的照片开始*/
+#myPhoto{
+	width:150px;
+	height:200px;
+	position:absolute;
+	left:-150px; top:150px;
+}
+#myPhoto img{
+	display:block;
+	width:150px;
+	height:200px;
+}
+/*我的照片结束*/
+/*文字部分开始*/
+#textInfo p{
+	position:absolute;
+	display:none;
+	bottom:0;
+	width:350px;
+	height:380px;
+	line-height:45px;
+	font-size:20px;
+	color:#fff;
+	z-index:50;
+}
+#textInfo .basic{
+	left:230px;
+}
+#textInfo .myself{
+	left:325px;
+}
+#textInfo .hobby{
+	left:420px;
+}
+#textInfo .experience{
+	left:515px;
+}
+#textInfo .work{
+	left:610px;
+}
+/*文字部分结束*/
+/*手风琴开始*/
+/*总宽度1002，手风琴的div宽度990，左右各留出来6个像素*/
+#accordion{
+	position:absolute;
+	left:6px;
+	bottom:0;
+	width:990px;
+	height:380px;
+}
+#accordion .accordionList{
+	overflow:hidden;
+	room:1;
+}
+/*li的高度和最外层div的高度一样，宽度是190，因为右侧有10个像素的margin,同时最后一个li没有右侧margin
+加起来正好990*/
+#accordion .accordionList li{
+	display:inline-block;
+	width:190px;
+	height:380px;
+	margin-right:10px;
+	float:left; 
+	overflow:hidden;
+	z-index:100;
+}
+/*li的padding是8个像素，所以图片的宽度和高度都是li的宽度和高度减去16个像素*/
+#accordion .pic{
+	position:relative;
+	width:174px;
+	height:364px;
+	padding:8px;
+	float:left;
+	background:#333;
+	/*包裹图片的div的层级要比最外层div的层级高*/
+}
+#accordion .pic img{
+	width:174px; 
+	height:364px; 
+	overflow:hidden;
+	z-index:100;
+}
+#accordion .accordionList li.last{
+	float:right;
+	margin:0;
+}
+/*手风琴结束*/
+/*********************************个人介绍结束****************************/
+
+/*********************************我的技能开始****************************/
+#mySkills{
+	position:relative;
+	width:1002px;
+	height:620px;
+	margin:0 auto;
+	background:#62a5b5;
+}
+#mySkills .sideBar{
+	position:absolute;
+	right:-50px;top:170px;
+	width:50px;
+	height:280px;
+	font-size:50px;
+	font-weight:bold;
+	border-radius:8px;
+	box-shadow:2px 2px 2px #aaa;
+	color:#fff;
+	background:#323b43;
+}
+
+/*我的技能里的的ul，宽度1000，正好是三个li的宽度加上四个间距的宽度
+*ul的高度是580，距离最外层div上边30像素，下边10个像素
+580是两个li的高度再加上上面和中间的距离,li的底部和ul的底部对齐
+*/
+#showSkills{
+	position:absolute;
+	left:1px; top:30px;
+	width:1000px;
+	height:580px;
+}
+/*一个li的宽度是320，边距和间距都是10个像素*/
+#showSkills li{
+	width:320px;
+	height:280px;
+	float:left;
+	margin:10px 0 0 10px;
+	color:#fff;
+	border-radius:5px;
+	cursor:default;
+	box-shadow:2px 2px 2px #aaa;
+	background:#59626a;
+	z-index:2000;
+}
+#showSkills li h2{
+	text-align:center;
+	background:#7fbb60;
+	margin:0 auto 10px;
+	border-radius:5px;
+	font-size:40px;
+}
+#showSkills li p{
+	width:300px;
+	height:200px;
+	font-family:"宋体" serif;
+	margin:0 auto;
+	font-size:20px;
+	line-height:30px;
+	color:#0FF;
+}
+/*********************************我的技能结束****************************/
+
+/*********************************回到顶部开始****************************/
+#backToTop{
+	position:absolute;
+	display:none;
+	top:0;
+	right:30px;
+	cursor:pointer;
+}
+#backToTop a{
+	display:block;
+	width:50px;
+	height:50px;
+	background:url(../images/indexLayout/top.png);
+}
+#backToTop a:hover{
+	opacity:1;
+}
+/*********************************回到顶部结束*****************************/
+

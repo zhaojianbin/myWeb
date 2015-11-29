@@ -1,0 +1,145 @@
+/*数字时钟开始
+一个图片的尺寸是50*65,一个span的尺寸是65*65，同时有左右边距各15，
+上面div的宽度=8*50+(65+15+15)*3 = 400+285 = 685
+下面div的宽度=6*50+(65+15+15)*3 = 300+285 = 585
+*/
+#wrapClock{
+	position:absolute;
+	left:330px; top:220px;
+	width:690px;
+	height:240px;
+	box-shadow:2px 2px;
+	background:#ced7df;
+}
+#date{
+	position:absolute;
+	top:10px;
+	width:685px; 
+	height:70px;
+}
+#time{
+	position:absolute;
+	left:45px;
+	bottom:20px;
+	width:585px; 
+	height:65px;
+}
+#wrapClock img{
+	display:block;
+	float:left;
+	width:50px;
+	height:65px;
+	line-height:65px;
+}
+#wrapClock span{
+	display:block;
+	float:left;
+	width:65px;
+	height:65px;
+	margin:0 15px;
+	height:70px;
+	line-height:70px;
+	font-size:70px;
+	color:#001163;
+	font-weight:bolder;
+}
+/*数字时钟结束*/
+
+/*主要列表区域开始
+大盒子的宽度620*460,
+*上面的两个按钮180*60,离开左右边距各100,它们的间距是60
+*下面ul的尺寸620*380
+*一个ul里面有六个li，每个li的尺寸290*50,每个li的下边距16,左右边距都是10
+*最后两个li没有下边距,a链接的尺寸跟li的吃尺寸完全一样
+总结，整个可视区域的宽度是600，高度是460，
+多出来的20个像素用于左面一排li的左边距和右面一排li的右边距
+*/
+#wrap{
+	position:relative;
+	width:620px;
+	height:500px;
+	margin:20px auto 20px auto;
+}
+/*展开收回按钮开始*/
+#wrap .listNav{
+	position:absolute;
+	display:block;
+	top:0;
+	width:180px;
+	height:60px;
+	line-height:60px;
+	color:#333;
+	text-align:left;
+	font-size:22px;
+	border-radius:5px;
+	background:#f5f7fa;
+}
+#wrap .listNav:hover{
+	color:#fff;
+	background:#0099ff;
+}
+#wrap .select{
+	left:-180px;
+	background:#f5f7fa;
+	
+}
+#wrap .collect{
+	right:-180px;
+}
+#wrap .listNav span{
+	float:right;
+	display:block;
+	width:0;
+	height:0;
+	margin:22px 6px 0 0;
+}
+#wrap .select span{
+	border-top:20px solid black;
+	border-left:14px solid rgba(255,255,255,0);
+	border-right:14px solid rgba(255,255,255,0);
+}
+#wrap .collect span{
+	border-bottom:20px solid black;
+	border-left:14px solid rgba(255,255,255,0);
+	border-right:14px solid rgba(255,255,255,0);
+}
+/*展开收回按钮结束*/
+/*主要列表区域开始*/
+#wrap .list{
+	position:absolute;
+	top:80px;
+	width:620px;
+	height:380px;
+}
+/*每一个li用的都是相对定位,参照点就是没采用相对定位的时候的自己，再次强调*/
+#wrap li{
+	position:relative;
+	float:left;
+	width:290px;
+	height:50px;
+	margin:0 10px 16px 10px;
+	border-radius:5px;
+	background:#f5f7fa;
+	opacity:0;
+	filter:alpha(opacity:0);
+}
+#wrap .list li.last{
+	margin-bottom:0;
+}
+#wrap li a{
+	display:block;
+	width:290px;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	color:#333;
+	border-radius:5px;
+	font-size:22px;
+}
+#wrap li a:hover{
+	color:#fff;
+	background:#0099ff;
+}
+/*主要列表区域结束*/
+
+

@@ -1,0 +1,334 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>canvas画基本图形</title>
+<style>
+body{
+	font-family:'Microsoft Yahei',sans-serif;
+	background:#4ed7df;
+}
+body,div,canvas,h1{
+	margin:0;
+	padding:0;
+}
+#container{
+	width:980px;
+	margin:20px auto;
+	overflow:hidden;
+}
+#container .list{
+	float:left;
+	width:300px;
+	height:308px;
+	margin:10px;
+	border:1px solid #fff;
+	background:#FF9;
+}
+#container .draw{
+	background:#CFC;
+}
+#container h1{
+	width:300px;
+	height:20px;
+	line-height:20px;
+	font-size:16px;
+	letter-spacing:2px;
+	font-weight:normal;
+	text-align:center;
+}
+</style>
+</head>
+
+<body>
+<div id="container">
+	<div class="list">
+    	<canvas id="c1" class="draw" width="300" height="280">
+        	您的浏览器不支持canvas元素，请更新或更换您的浏览器
+        </canvas>
+    	<h1>直线</h1>
+    </div>
+    <div class="list">
+    	<canvas id="c2" class="draw" width="300" height="280"></canvas>
+    	<h1>矩形</h1>
+    </div>
+    <div class="list">
+    	<canvas id="c3" class="draw" width="300" height="280"></canvas>
+    	<h1>圆</h1>
+    </div>
+    <div class="list">
+    	<canvas id="c4" class="draw" width="300" height="280"></canvas>
+    	<h1>圆弧</h1>
+    </div>
+    <div class="list">
+    	<canvas id="c5" class="draw" width="300" height="280"></canvas>
+    	<h1>三角形</h1>
+    </div>
+    <div class="list">
+    	<canvas id="c6" class="draw" width="300" height="280"></canvas>
+    	<h1>二次方贝塞尔曲线</h1>
+    </div>
+    <div class="list">
+    	<canvas id="c7" class="draw" width="300" height="280"></canvas>
+    	<h1>三次方贝塞尔曲线</h1>
+    </div>
+    <div class="list">
+    	<canvas id="c8" class="draw" width="300" height="280"></canvas>
+    	<h1>保存和恢复canvas的状态</h1>
+    </div>
+    <div class="list">
+    	<canvas id="c9" class="draw" width="300" height="280"></canvas>
+    	<h1>坐标空间的旋转</h1>
+    </div>
+    <div class="list">
+    	<canvas id="c10" class="draw" width="300" height="280"></canvas>
+    	<h1>缩放图形</h1>
+    </div>
+    <div class="list">
+    	<canvas id="c11" class="draw" width="300" height="280"></canvas>
+    	<h1>图形组合</h1>
+    </div>
+    <div class="list">
+    	<canvas id="c12" class="draw" width="300" height="280"></canvas>
+    	<h1>canvas线性渐变</h1>
+    </div>
+    <div class="list">
+    	<canvas id="c13" class="draw" width="300" height="280"></canvas>
+    	<h1>canvas径向渐变</h1>
+    </div>
+    <div class="list">
+    	<canvas id="c14" class="draw" width="300" height="280"></canvas>
+    	<h1>路径绘制大写字母A</h1>
+    </div>
+    <div class="list">
+    	<canvas id="c15" class="draw" width="300" height="280"></canvas>
+    	<h1>图像和图像切片</h1>
+    </div>
+    
+</div>
+<script>
+/*旋转坐标空间的三个函数*/
+function drawTop(ctx,fillStyle){
+	ctx.fillStyle = fillStyle;
+	ctx.beginPath();
+	ctx.arc(0,0,30,0,Math.PI,true);
+	ctx.closePath();
+	ctx.fill();
+}
+function drawGrip(ctx){
+	ctx.save();
+	ctx.fillStyle = 'blue';
+	ctx.fillRect(-1.5,0,1.5,40);
+	ctx.beginPath();
+	ctx.strokeStyle = 'blue';
+	ctx.arc(-5,40,4,Math.PI,Math.PI*2,true);
+	ctx.stroke();
+	ctx.closePath();
+	ctx.restore();
+}
+function draw(){
+	var ctx = document.getElementById('c9').getContext('2d');//获取画布
+	ctx.translate(145,140);
+	for(var i=1; i<10; i++){
+		ctx.save();
+		ctx.rotate(Math.PI*(2/4+i/4));//这句用来旋转坐标空间
+		ctx.translate(0,-100);//这句是改变原点
+		
+		drawTop(ctx,'rgb('+(30*i)+','+(255-30*i)+',255)');
+		drawGrip(ctx);
+		ctx.restore();
+	}
+}
+/*缩放图形的函数*/
+function draw1(){
+	var ctx = document.getElementById('c10').getContext('2d');//获取画布
+	ctx.translate(180,20);
+	for(var i=1; i<100; i++){//循环80次，每次都缩小到原来的0.95大小，同时还移动坐标
+		ctx.save();
+		ctx.translate(30,30);
+		ctx.scale(0.93,0.93);//这就是缩放的代码
+		ctx.rotate(Math.PI/12);
+		ctx.beginPath();
+		ctx.fillStyle = '#d22dff';
+		ctx.globalAlpha = 0.5;
+		ctx.arc(0,0,50,0,Math.PI*2,true);
+		ctx.closePath();
+		ctx.fill();
+	}
+}
+/*图形组合的函数*/
+function draw2(){
+	var c11 = document.getElementById('c11');
+	var context11 = c11.getContext('2d');
+	context11.fillStyle = '#b44bff';
+	context11.fillRect(100,10,180,150);
+	context11.fillStyle = 'green';
+	context11.globalCompositeOperation = 'darker';
+	context11.globalAlpha = 0.5;
+	context11.beginPath();
+	context11.arc(100,150,100,0,Math.PI*2,true);
+	context11.closePath();
+	context11.fill();
+	
+}
+window.onload = function(){
+	//直线
+	var c1 = document.getElementById('c1');
+	var context1 = c1.getContext('2d');
+	context1.moveTo(0,0);
+	context1.lineTo(300,280);
+	context1.stroke();
+	//矩形
+	var c2 = document.getElementById('c2');
+	var context2 = c2.getContext('2d');
+	context2.strokeStyle = '#000';
+	context2.strokeRect(20,10,260,120);
+	context2.fillStyle = '#ff00ff';
+	context2.fillRect(20,150,260,120);
+	context2.clearRect(120,180,50,50);
+	//圆
+	var c3 = document.getElementById('c3');
+	var context3 = c3.getContext('2d');
+	context3.fillStyle = 'red';//填充色
+	context3.beginPath();//开始绘制路径
+	context3.arc(150,140,100,0,(Math.PI)*2,true);
+	context3.fill();
+	//圆弧
+	var c4 = document.getElementById('c4');
+	var context4 = c4.getContext('2d');
+	for(var i=0; i<35; i++){
+		context4.strokeStyle = '#ff00ff';
+		context4.beginPath();//开始绘制路径
+		context4.arc(0,280,i*8,0,Math.PI*3/2,true);
+		//context.closePath();//加上以后起始点和结束点之间通过一条线连在一起
+		context4.stroke();
+	}
+	//三角形
+	var c5 = document.getElementById('c5');
+	var context5 = c5.getContext('2d');
+	context5.fillStyle = 'yellow';
+	context5.beginPath();//开始绘制路径
+	context5.moveTo(25,25);
+	context5.lineTo(280,25);
+	context5.lineTo(25,250);
+	context5.fill();
+	//二次方贝塞尔曲线
+	var c6 = document.getElementById('c6');
+	var context6 = c6.getContext('2d');
+		
+	//开始绘制
+	context6.strokeStyle = 'dark';
+	context6.beginPath();
+	context6.moveTo(0,200);
+	context6.quadraticCurveTo(75,50,300,200);
+	context6.stroke();//描边
+	
+	//下面是辅助线
+	context6.strokeStyle = '#f0f';
+	context6.beginPath();
+	context6.moveTo(75,50);
+	context6.lineTo(0,200);
+	context6.moveTo(75,50);
+	context6.lineTo(300,200);
+	context6.stroke();
+	
+	//三次方贝塞尔曲线
+	var c7 = document.getElementById('c7');
+	var context7 = c7.getContext('2d');
+	
+	//start
+	context7.strokeStyle = 'dark';
+	context7.beginPath();
+	context7.moveTo(0,200);
+	context7.bezierCurveTo(25,50,75,50,300,200);
+	context7.stroke();//描边
+	
+	//下面是辅助线
+	context7.strokeStyle = '#f0f';
+	context7.beginPath();
+	context7.moveTo(25,50);
+	context7.lineTo(0,200);
+	context7.moveTo(75,50);
+	context7.lineTo(300,200);
+	context7.stroke();
+	
+	//保存和恢复canvas的状态
+	var c8 = document.getElementById('c8');
+	var context8 = c8.getContext('2d');
+	
+	//开始绘制矩形
+	context8.fillStyle = 'pink';
+	context8.strokeStyle = 'blue';
+	context8.fillRect(20,20,100,100);
+	context8.strokeRect(20,20,100,100);
+	context8.fill();
+	context8.stroke();
+	
+	//保存canvas的状态
+	context8.save();
+	
+	//开始绘制另一个矩形
+	context8.fillStyle = 'red';
+	context8.strokeStyle = 'purple';
+	context8.fillRect(140,20,100,100);
+	context8.strokeRect(140,20,100,100);
+	context8.fill();
+	context8.stroke();
+	
+	//恢复第一个矩形状态
+	context8.restore();//有没有这行的效果不一样
+	
+	//绘制两个矩形
+	context8.fillRect(20,140,100,100);
+	context8.strokeRect(150,140,100,100);
+	
+	//坐标空间的旋转
+	draw();
+	//缩放图形
+	draw1();
+	//图形组合
+	draw2();
+	//线性渐变
+	var c12 = document.getElementById('c12');
+	var context12 = c12.getContext('2d');
+	var linGrad = context12.createLinearGradient(0,0,200,250);
+	linGrad.addColorStop(1/4,'red');
+	linGrad.addColorStop(2/4,'yellow');
+	linGrad.addColorStop(3/4,'orange');
+	linGrad.addColorStop(1,'purple');
+	
+	context12.fillStyle = linGrad;
+	context12.fillRect(0,0,300,280);
+	//径向渐变
+	var context13 = document.getElementById('c13').getContext('2d');
+	var radGrad = context13.createRadialGradient(80,80,20,150,130,110);
+	radGrad.addColorStop(0.0,'yellow');
+	radGrad.addColorStop(0.5,'orange');
+	radGrad.addColorStop(0.7,'orange');
+	radGrad.addColorStop(1.0,'rgba(0,0,0,0)');
+	
+	context13.fillStyle = radGrad;
+	context13.fillRect(0,0,300,280);
+	//路径绘制大写字母A
+	var context14 = document.getElementById('c14').getContext('2d');
+	context14.beginPath();
+	context14.moveTo(0,280);
+	context14.lineTo(150,0);
+	context14.lineTo(300,280);
+	context14.moveTo(50,160);
+	context14.lineTo(250,160);
+	context14.stroke();
+	//图像和图像切片
+	var context15 = document.getElementById('c15').getContext('2d');
+	var img  = new Image();
+	img.onload = function(){
+		context15.drawImage(img,0,0);
+		context15.drawImage(img,100,150,50,50,0,240,60,40);
+		context15.drawImage(img,200,100,50,50,240,240,60,40);
+	};
+	img.src ="../images/HTML5WorksInvertedImg/3.jpg";
+	
+};
+</script>
+</body>
+</html>

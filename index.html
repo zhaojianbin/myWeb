@@ -1,0 +1,243 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"><!--内容类型以及编码格式 -->
+<meta name="keywords" content="赵建彬,个人网站,前端"><!--关键词 -->
+<meta name="description" content="赵建彬，进行Web前端相关知识的练习和实践，包括html，css，JavaScript，jquery等等"><!--主要内容说明 -->
+<meta name="author" content="赵建彬"><!--作者 -->
+<meta name="robots" content="all"><!--文件将被检索，且页面上的链接可以被查询 -->
+<meta name="generator" content="Adobe Dreamweaver CS6"><!--生成网页的工具 -->
+<title>赵建彬 ^-^朋友，欢迎你</title>
+<link rel="shortcut icon" href="images/indexLayout/logo.ico"> 
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <!--包裹框开始 -->
+    <div id="container">
+    	<!--放置名字的div -->
+        <div class="coverName">赵建彬</div>
+        <div class="myName">赵建彬</div>
+        <!--导航区开始 -->
+        <ul class="nav">
+            <li><a href="javascript:;">主页</a></li>
+            <li><a href="javascript:;">简介</a></li>
+            <li><a href="javascript:;">我的技能</a></li>
+            <li><a href="JSWorks/main.html" target="_blank" class="newPage">JS与框架</a></li>
+            <li><a href="HTML5Works/main.html" target="_blank" class="newPage">效果与布局</a></li>
+            <li><a href="AjaxWorks/main.html" target="_blank" class="newPage">ajax与后台</a></li>
+        </ul>
+        <!--导航区结束 -->
+        
+        <!--图片轮播开始 -->
+        <div id="playimages" class="play">
+            <ul class="bigPic">
+                <!--prev和next是左边的按钮和右边的按钮 -->
+                <div class="prev"></div>
+                <div class="next"></div>
+                <!--markLeft和markRight是为了检测鼠标位置，
+                来决定让哪边的箭头显示出来-->
+                <a class="markLeft" href="javascript:;"></a>
+                <a class="markRight" href="javascript:;"></a>
+                <!--大图最下方有透明度的文字条 -->
+                <div class="bg"></div>
+                <!--存放图片的文字说明-->
+                <div id="text">我的家乡张家口，一片大好河山</div>
+                <!--对图片计数-->
+                <div id="length">1/6</div>
+                
+                <li style="z-index:1"><img src="images/indexImgPlay/1.jpg"></li>
+                <li><img src="images/indexImgPlay/2.jpg"></li>
+                <li><img src="images/indexImgPlay/3.jpg"></li>
+                <li><img src="images/indexImgPlay/4.jpg"></li>
+                <li><img src="images/indexImgPlay/5.jpg"></li>
+                <li><img src="images/indexImgPlay/6.jpg"></li>
+            </ul>
+            <div class="smallPic">
+                <ul>
+                	<!--上来一刷新的时候，第一张小图的不透明度是满的 -->
+                    <li style="opacity:1;filter:100"><img src="images/indexImgPlay/1.jpg"></li>
+                    <li><img src="images/indexImgPlay/2.jpg"></li>
+                    <li><img src="images/indexImgPlay/3.jpg"></li>
+                    <li><img src="images/indexImgPlay/4.jpg"></li>
+                    <li><img src="images/indexImgPlay/5.jpg"></li>
+                    <li><img src="images/indexImgPlay/6.jpg"></li>
+                </ul>
+            </div>
+        </div>
+        <!--图片轮播结束 -->
+        <!--音乐播放器开始 -->
+        <audio id="audio" src="sound/fcml.mp3"></audio>
+        <div id="wrapMp3">
+            <!--播放暂停按钮 -->
+           <div class="wraplay"> <div id="playMp3" class="playing"></div></div>
+            <!--进度条 -->
+            <div id="progress">
+                <span class="bar"></span>
+                <div class="proBtn"></div>
+            </div>
+            <!--音量图标 -->
+            <div id="sound" class="soundon"></div>
+            <!--声音控制 -->
+            <div id="volume">
+                <span class="volumeBar"></span>
+                <div id="volumeBtn"></div>
+            </div>
+        </div>
+        <!--音乐播放器结束 -->
+    </div>
+    <!--包裹框结束 -->
+    <!--个人介绍开始 -->
+    <div id="aboutMe">
+    <!--我的照片开始 -->
+    <p id="myPhoto"><img src="images/indexLayout/me.jpg" alt="这是我的照片"></p>
+    <!--我的照片结束 -->
+    <!--上方放大镜效果开始 -->
+    <div id="magnifier">
+        <div class="smallPic">
+            <span class="mark"></span>
+            <span class="floatLayer"></span>
+            <img src="images/indexLayout/aboutMeSmall.jpg" alt="关于我">
+        </div>
+        <div class="bigPic">
+        	<img src="images/indexLayout/aboutMeBig.jpg" alt="关于我">
+		</div>
+    </div>
+    <!--上方放大镜效果结束 -->
+    <!--个人介绍的文字部分开始 -->
+    <div id="textInfo">
+        <p class="basic">
+            姓名：请看本页的左上角~~~<br>
+            性别：请参照左侧的照片~~~<br>
+            年龄：匆匆已过二十载^-^<br>
+            性格：不算外向，也不是很内向……<br>
+            民族：汉族<br>
+            认识一下? | 交个朋友? | 联系我?<br>
+            我的邮箱：<br>service@zhaojianbin.com<br>
+        </p>
+        <p class="myself">
+        	十几亿普通人中的一个，喜欢交朋友。<br>
+            幽默？稍微有一点儿。<br>
+            自制力？还不错。<br>
+            学习能力？挺靠谱的<br>
+            智商正常，有目标，有追求<br>
+            愿意，也能够为了想完成的事情付出时间，付出心血和汗水。<br>
+        </p>
+        <p class="hobby">
+        	兴趣爱好可以用广泛来形容<br>
+            喜欢唱歌，喜欢的歌手有很多~~<br>
+            喜欢看比赛，篮球，足球，田径……<br>
+            喜欢打台球，水平还不错^-^<br>
+            最近越来越觉得写代码是一件很有意思的事情，能从中得到乐趣和成就感。<br>
+        </p>
+        <p class="experience">
+        	高中：河北省张家口市第四中学<br>
+            大学：河北工程大学科信学院<br>
+            也许你并没有听说过我的母校，因为她们不是很著名。不过即便如此，她们给我带来的进步，也要远远超过我对她们的奉献，感谢每一位教我成长的老师。<br>
+            哦，要特别说明一下，我的学历确实是本科，货真价实，毫无疑问的^-^
+        </p>
+        <p class="work">
+        	大四在读，之前没有正式的工作经历。<br>
+            期待着毕业之后的第一份工作。<br>
+            期待着能在美好的青春年华中，通过努力获得进步，通过为他人做出一些贡献来实现自己的价值。<br>
+            路漫漫其修远兮，吾将上下而求索。
+        </p>
+    </div>
+    <!--个人介绍的文字部分结束 -->
+    <!--下方手风琴效果开始 -->
+    <div id="accordion">
+		<ul class="accordionList">
+            <li>
+                <div class="pic"><img src="images/indexAboutMe/1.jpg" alt="基本信息"></div>
+            </li>
+            <li>
+                <div class="pic"><img src="images/indexAboutMe/2.jpg" alt="自我评价"></div>
+            </li>
+            <li>
+                <div class="pic"><img src="images/indexAboutMe/3.jpg" alt="兴趣爱好"></div>
+            </li>
+            <li>
+                <div class="pic"><img src="images/indexAboutMe/4.jpg" alt="教育经历"></div>
+            </li>
+            <li class="last">
+                <div class="pic"><img src="images/indexAboutMe/5.jpg" alt="关于工作"></div>
+            </li>
+    	</ul>
+	</div>
+    <!--下方手风琴效果结束 -->
+    </div>
+    <!--个人介绍结束 -->
+    <!--我的技能开始 -->
+    <div id="mySkills">
+        <p class="sideBar">我的技能</p>
+    	<ul id="showSkills">
+        	<li>
+            	<h2>html/css</h2>
+                <p>
+                	能手写常见的页面布局，保证符合语义化标准，做到样式与结构完全分离。<br>
+                    了解html5新增标签和表单类型，以及canvas的基本用法。<br>
+                    知道html5其他新增API<br>
+                </p>
+            </li>
+        	<li>
+            	<h2>html/css</h2>
+                <p>
+                    理解盒模型，浮动，定位等概念，可以熟练应用在布局中。<br>
+                    了解css3新增选择器，以及边框，阴影，渐变，过渡，反射，变换等新增特性。<br>
+                    会用less/sass和compass<br>
+                    会用bootstrap
+                </p>
+            </li>
+        	<li>
+            	<h2>JS/JS框架</h2>
+                <p>
+                	理解prototype，dom，bom，事件等概念，能够用原生js写出基本的网页交互效果。<br>
+                    知道并且能够解决大部分js在主流浏览器中的兼容性问题。<br>
+                    熟练应用jQuery提供的各种方法。<br>
+                    有过了解的框架：avalon，react
+                </p>
+            </li>
+        	<li>
+            	<h2>ajax/后台</h2>
+                <p>
+                	熟悉ajax的基本用法，能用ajax发送请求，获取响应内容。<br>
+                    对php和java有基本认识，需要的话能快速上手<br>
+                    已经掌握linux系统的常用命令
+                </p>
+            </li>
+        	<li>
+            	<h2>工具/软件</h2>
+                <p>
+                	Firebug/Chrome调试工具<br>
+                    熟练使用DreamWeawer/Sublime Text手工编写代码<br>
+                    能用PhotoShop进行简单图片处理<br>
+                    会用grunt和git
+                </p>
+            </li>
+        	<li>
+            	<h2>更多……</h2>
+                <p>
+                	正在深入学习已经熟悉的内容，积极了解与前端开发相关的技术。<br>
+                    试图把更多的注意力放在基础知识而不是框架上<br>
+                	查看已经完成的作品请点击右下角按钮回到顶部，访问其他页面。
+                </p>
+            </li>
+        </ul>
+    </div>
+    <!--我的技能结束 -->
+    <!--页脚部分开始 -->
+    <div id="footer">
+        <p class="copyright">© 2015 ZhaoJianBin. All Rights Reserved | 
+        	<a href="http://www.miitbeian.gov.cn/" target="_blank">冀ICP备15026051号</a>
+        </p>
+    </div>
+    <!--页脚部分结束 -->
+    <!--回到顶部开始 -->
+    <div id="backToTop"><a href="javascript:;"></a></div>
+    <!--回到顶部结束 -->
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/move.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+/*弹出层部分开始
+可以说弹出两层，小层的z-index要比大层高一
+*/
+#popBtn{
+	position:absolute; 
+	left:0; 
+	top:80px;
+	width:140px;
+	height:50px;
+	padding:10px;
+	font-size:22px;
+	font-weight:bold;
+	cursor:pointer;
+	border:2px solid #06f;
+	background:#06F;
+}
+#overlay{
+	display:none;
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background:#000;
+	opacity:0.7;
+	filter:alpha(opacity:70);
+	z-index:3000;
+}
+#littlelay{
+	display:none;
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:400px;
+	height:200px;
+	background:#fff;
+	border:4px solid blue;
+	margin:-102px 0 0 -202px;
+	z-index:3001;
+}
+#littlelay h2{
+	padding:2px;
+	text-align:right;
+	background:#06f;
+	cursor:move;
+	border-bottom:3px solid #06f;
+}
+#closelay{
+	display:inline-block;
+	width:20px;
+	height:20px;
+	line-height:24px;
+	font-size:24px;
+	color:#f90;
+	text-align:center;
+	cursor:pointer;
+	background:#fff;
+	border:2px solid red;
+	padding:0 2px;
+}
+#littlelay p{
+	font-size:40px;
+	color:black;
+	text-align:center;
+}
+/*弹出层部分结束*/
+
+
+
+
+
+/*中间主要区域开始*/
+#wrapContent{
+	width:1002px;
+	height:520px;
+	margin:10px auto 0;
+}
+#dragImg{
+	position:relative;
+	width:1002px;
+	height:440px;
+	margin-bottom:16px;
+}
+#dragImg li{
+	float:left;
+	margin:10px 20px;
+	width:200px;
+	height:200px;
+	z-index:1;
+}
+#dragImg li a{
+	cursor:default;
+}
+#dragImg .active{
+	border:5px dashed red;
+}
+/*中间主要区域结束*/
+/*底部选择区域开始*/
+#menu{
+	position:absolute;
+	top:-64px;
+	width:100%;
+	height:128px;
+	text-align:center;
+	z-index:2000;
+}
+#menu img{
+	/*给图片设置宽高中的一个，另外一个会自动等比例缩放*/
+	width:64px;
+}
+#menu .active{
+	border:2px dashed red;
+}
+/*底部选择区域结束*/
+

@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>图片无缝滚动</title>
+<!--一个li的大小和一张图片的大小一样，先确定外层div的宽度等于一组图片的宽度。然后设置定时器改变ul的left值，具体的方法就是用ul的左边距减去一定的数值，数值越大滚动越快。发现有问题，露出了背景。接着就又复制了一组图片，相当于一共有两份。但是发现因为ul的宽度不够，图片排成了两行，那就只好设置ul的宽度等于每一个li的宽度乘以li的个数，也就是两组图片的个数。
+offsetLeft表示与父元素的左边距，向左滚动时候，当两组图片刚刚滚动超过一半距离的时候，就拉回来。
+最后设置最外层div的溢出隐藏，让用户每次只能看到一组图片-->
+<!--鼠标移入移出直接清除或者开启定时器就可以了，定时器只有开或者关两种情况，没有什么所谓的重置和恢复之类的 -->
+<!--设置速度也需要注意一下，各种不同的情况下速度的取值以及是自增还是自减 -->
+<style>
+body,div,ul,li,img{
+	margin:0;
+	padding:0;
+}
+body{
+	background:#666;
+}
+/*最外层的大div的宽度是图片所有宽度的和，高度是图片的高度，并且加上相对定位*/
+#imageList{
+	position:relative;
+	margin:150px auto;
+	width:780px;
+	height:130px;
+	box-shadow:3px 3px 3px black;
+	overflow:hidden;
+}
+/*给ul加上绝对定位，移动的就是整个ul，而不是一张一张的li。通过offsetLeft改变它定位的left值。*/
+#imageList ul{
+	position:absolute;
+	left:0;
+	top:0;
+}
+/*li的宽度和高度是图片的宽度和高度*/
+#imageList ul li{
+	float:left;
+	width:130px;
+	height:130px;
+	list-style-type:none;
+}
+#inputs{
+	width:420px; 
+	height:50px; 
+	margin:50px auto 0;
+}
+#inputs input{
+	width:100px; 
+	height:50px; 
+	line-height:50px;
+	font-size:20px;
+	font-weight:bolder;
+	float:left;
+	border-radius:5px;
+	box-shadow:3px 3px 3px black;
+	margin-right:5px;
+}
+#showSpeed{
+	position:absolute;
+	right:100px; top:400px;
+	width:260px;
+	height:60px;
+	line-height:60px;
+	font-size:30px;
+	color:#00C;
+	text-indent:2px;
+	border-radius:5px;
+	box-shadow:3px 3px 3px #000;
+	background:#aaa;;
+}
+</style>
+
+</head>
+
+<body>
+<div id="imageList">
+	<ul>
+    	<li><img src="../images/JSWorksPicScroll/pic1.jpg" alt=""></li>
+    	<li><img src="../images/JSWorksPicScroll/pic2.jpg" alt=""></li>
+    	<li><img src="../images/JSWorksPicScroll/pic3.jpg" alt=""></li>
+    	<li><img src="../images/JSWorksPicScroll/pic4.jpg" alt=""></li>
+    	<li><img src="../images/JSWorksPicScroll/pic5.jpg" alt=""></li>
+    	<li><img src="../images/JSWorksPicScroll/pic6.jpg" alt=""></li>
+    </ul>
+</div>
+<div id="inputs">
+    <input id="left" type="button" value="向左滚动" />
+    <input id="right" type="button" value="向右滚动" />
+    <input id="faster" type="button" value="快一点儿" />
+    <input id="slower" type="button" value="慢一点儿" />
+</div>
+<p id="showSpeed"></p>
+<script>
+window.onload = function(){
+	var oDiv = document.getElementById('imageList');
+	var oUl = document.getElementsByTagName('ul')[0];
+	var aLi = oUl.getElementsByTagName('li');
+	var oShowSpeed = document.getElementById('showSpeed');
+	//定义移动速度，速度和方向都由这个变量控制
+	var speed = 3;
+	
+	//把ul中的东西复制一份
+	oUl.innerHTML += oUl.innerHTML;
+	//设置ul的宽度，等于一个li的宽度乘以li的个数
+	oUl.style.width = aLi[0].offsetWidth*aLi.length + 'px';
+	
+	//移动函数，分向左向右两种情况
+	function moveImg(){
+		//向左滚动，初始left是0.如果ul宽度的一半已经滚动出去了，那就把它拉回来
+		if(oUl.offsetLeft < -oUl.offsetWidth/2){
+			oUl.style.left = '0';
+		}
+		//向左滚动，初始left是负的ul宽度的一半，如果已经到0了，再让它回到初始位置
+		if(oUl.offsetLeft > 0){
+			oUl.style.left = -oUl.offsetWidth/2+'px';
+		}
+		//实现移动效果的一句代码
+		oUl.style.left = oUl.offsetLeft+speed+'px';
+	}
+	var timer = setInterval(moveImg,30);
+	
+	//鼠标移入移出效果
+	oDiv.onmouseover = function(){
+		clearInterval(timer);
+	};
+	oDiv.onmouseout = function(){
+	 	timer = setInterval(moveImg,30);
+	};
+	
+	//控制向左向右
+	document.getElementById('left').onclick = function(){
+		speed = -3;
+		oShowSpeed.innerHTML = '当前的速度是：' + speed;
+	};
+	document.getElementById('right').onclick = function(){
+		speed = 3;
+		oShowSpeed.innerHTML = '当前的速度是：' + speed;
+	};
+	
+	//控制移动速度,注意判断条件,当速度为负的时候容易产生迷惑
+	document.getElementById('faster').onclick = function(){
+		if(speed == 15 || speed == -15){
+			alert('哇塞，太快了！！！');
+		}
+		else if(speed>-15&&speed<0){
+			speed--;
+		}else if(0<=speed<=10){
+			
+			speed++;
+		}
+		oShowSpeed.innerHTML = '当前的速度是：' + speed;
+	};
+	document.getElementById('slower').onclick = function(){
+		if(speed > 0){
+			speed--;
+		}else if(speed < 0){
+			speed++;
+		}else if(speed === 0){
+			alert('亲，不能再慢了！！！');
+		}
+		oShowSpeed.innerHTML = '当前的速度是：' + speed;
+	};
+	oShowSpeed.innerHTML = '当前的速度是：' + speed;
+	
+	
+};
+</script>
+</body>
+</html>

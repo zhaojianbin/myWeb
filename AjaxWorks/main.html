@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ajax与后台作品导航</title>
+<link rel="shortcut icon" href="../images/indexLayout/logo.ico"> 
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/mainNav.css">
+<link rel="stylesheet" href="../css/AjaxWorksMain.css">
+</head>
+
+<body>
+<!--顶部导航栏开始 -->
+<div id="mainNav">
+	<div class="myLogo"></div>
+    <ul class="pagesNav">
+    	<li><a href="../index.html">主页</a></li>
+    	<li><a href="../JSWorks/main.html">JS与框架</a></li>
+    	<li><a href="../HTML5Works/main.html">效果与布局</a></li>
+    	<li><a href="../AjaxWorks/main.html" id="current">ajax与后台</a></li>
+    </ul>
+</div>
+<div id="mainNavBtn"></div>
+<!--顶部导航栏结束 -->
+<!--弹出层开始 -->
+<div id="overlay"></div>
+<div id="littlelay">
+	<h2><span id="closelay">×</span></h2>
+    <p>亲,我和页面中的图片都可以拖动呦!^-^</p>
+</div>
+<input id="popBtn" type="button" value="一个小提示">
+<!--弹出层结束 -->
+<!--中间图片拖拽开始-->
+<div id="wrapContent">
+	<ul id="dragImg">
+    	<li><a href="javascript:;"><img src="../images/AjaxWorksMain/1.jpg"></a></li>
+    	<li><a href="javascript:;"><img src="../images/AjaxWorksMain/2.jpg"></a></li>
+    	<li><a href="javascript:;"><img src="../images/AjaxWorksMain/3.jpg"></a></li>
+    	<li><a href="javascript:;"><img src="../images/AjaxWorksMain/4.jpg"></a></li>
+    	<li><a href="javascript:;"><img src="../images/AjaxWorksMain/5.jpg"></a></li>
+    	<li><a href="javascript:;"><img src="../images/AjaxWorksMain/6.jpg"></a></li>
+    	<li><a href="javascript:;"><img src="../images/AjaxWorksMain/7.jpg"></a></li>
+    	<li><a href="javascript:;"><img src="../images/AjaxWorksMain/8.jpg"></a></li>
+    </ul>
+</div>
+<!--中间图片拖拽结束 -->
+<!--页脚部分开始 -->
+<div id="footer">
+	<!--底部菜单开始 -->
+    <div id="menu">
+        <a href="javascript:;"><img src="../images/AjaxWorksMain/01.jpg" alt=""></a>
+        <a href="javascript:;"><img src="../images/AjaxWorksMain/02.jpg" alt=""></a>
+        <a href="javascript:;"><img src="../images/AjaxWorksMain/03.jpg" alt=""></a>
+        <a href="javascript:;"><img src="../images/AjaxWorksMain/04.jpg" alt=""></a>
+        <a href="javascript:;"><img src="../images/AjaxWorksMain/05.jpg" alt=""></a>
+        <a href="javascript:;"><img src="../images/AjaxWorksMain/06.jpg" alt=""></a>
+        <a href="javascript:;"><img src="../images/AjaxWorksMain/07.jpg" alt=""></a>
+        <a href="javascript:;"><img src="../images/AjaxWorksMain/08.jpg" alt=""></a>
+    </div>
+    <!--底部菜单结束 -->
+    <p class="copyright">© 2015 ZhaoJianBin. All Rights Reserved | 
+        <a href="http://www.miitbeian.gov.cn/" target="_blank">冀ICP备15026051号</a>
+    </p>
+</div>
+        
+    
+<!--页脚部分结束 -->
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="../js/move.js"></script>
+<script src="../js/mainNav.js"></script>
+<script src="../js/AjaxWorksMain.js"></script>
+</body>
+</html>

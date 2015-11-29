@@ -1,0 +1,15 @@
+@charset "utf-8";
+body{
+	background:pink;	
+}
+#nav{
+	background:red;
+	border-color:#fff;	
+}
+#nav li{
+	border-color:#fff;	
+}
+#news p{
+	background:#F96;
+}
+

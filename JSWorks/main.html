@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JS与框架作品导航</title>
+<link rel="shortcut icon" href="../images/indexLayout/logo.ico"> 
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/mainNav.css">
+<link rel="stylesheet" href="../css/JSWorksMain.css">
+</head>
+
+<body>
+<!--顶部导航栏开始 -->
+<div id="mainNav">
+	<div class="myLogo"></div>
+    <ul class="pagesNav">
+    	<li><a href="../index.html">主页</a></li>
+    	<li><a href="javascript:;" id="current">JS与框架</a></li>
+    	<li><a href="../HTML5Works/main.html">效果与布局</a></li>
+    	<li><a href="../AjaxWorks/main.html">ajax与后台</a></li>
+    </ul>
+</div>
+<div id="mainNavBtn"></div>
+<!--顶部导航栏结束 -->
+<!--图片滑动区域开始 -->
+<div id="imgListBox" class="imgListBox">
+	<!--ul设置溢出隐藏，只能在页面中同时看到两排 -->
+	<ul class="list hidden">
+    	<li>
+        	<a href="javascript:;">
+            	<img src="../images/JSWorksMain/01.jpg" alt="从这里开始">
+            </a>
+        </li>
+        <li>
+        	<a href="picScroll.html" target="_blank">
+            	<img src="../images/JSWorksMain/02.jpg" alt="图片无缝滚动">
+            </a>
+        </li>
+        <li>
+        	<a href="skinChange.html" target="_blank">
+            	<img src="../images/JSWorksMain/03.jpg" alt="网页换肤">
+            </a>
+        </li>
+        <li>
+        	<a href="table.html" target="_blank">
+            	<img src="../images/JSWorksMain/04.jpg" alt="DOM操作表格">
+            </a>
+        </li>
+        <li>
+        	<a href="snakeGame.html" target="_blank">
+            	<img src="../images/JSWorksMain/05.jpg" alt="贪吃蛇">
+            </a>
+        </li>
+        <li>
+        	<a href="register.html" target="_blank">
+            	<img src="../images/JSWorksMain/06.jpg" alt="注册验证">
+            </a>
+        </li>
+        <li>
+        	<a href="countDown.html" target="_blank">
+            	<img src="../images/JSWorksMain/07.jpg" alt="倒计时效果">
+            </a>
+        </li>
+        <li>
+        	<a href="shopping.html" target="_blank">
+            	<img src="../images/JSWorksMain/08.jpg" alt="购物车">
+            </a>
+        </li>
+        <li>
+        	<a href="javascript:;">
+            	<img src="../images/JSWorksMain/09.jpg" alt="">
+            </a>
+        </li>
+        <li>
+        	<a href="javascript:;">
+            	<img src="../images/JSWorksMain/10.jpg" alt="">
+            </a>
+        </li>
+        <li>
+        	<a href="javascript:;">
+            	<img src="../images/JSWorksMain/11.jpg" alt="">
+            </a>
+        </li>
+        <li>
+        	<a href="javascript:;">
+            	<img src="../images/JSWorksMain/12.jpg" alt="">
+            </a>
+        </li>
+        <li>
+        	<a href="javascript:;">
+            	<img src="../images/JSWorksMain/13.jpg" alt="">
+            </a>
+        </li>
+        <li>
+        	<a href="javascript:;">
+            	<img src="../images/JSWorksMain/14.jpg" alt="">
+            </a>
+        </li>
+        <li>
+        	<a href="javascript:;">
+            	<img src="../images/JSWorksMain/15.jpg" alt="">
+            </a>
+        </li>
+        <li>
+        	<a href="javascript:;">
+            	<img src="../images/JSWorksMain/16.jpg" alt="">
+            </a>
+        </li>
+        <li>
+        	<a href="javascript:;">
+            	<img src="../images/JSWorksMain/17.jpg" alt="">
+            </a>
+        </li>
+        <li>
+        	<a href="javascript:;">
+            	<img src="../images/JSWorksMain/18.jpg" alt="">
+            </a>
+        </li>
+        <li>
+        	<a href="javascript:;">
+            	<img src="../images/JSWorksMain/19.jpg" alt="">
+            </a>
+        </li>
+        <li>
+        	<a href="javascript:;">
+            	<img src="../images/JSWorksMain/20.jpg" alt="">
+            </a>
+        </li>
+    </ul>
+    <div id="page">
+    	<a href="javascript:;" class="prev"></a>
+    	<a href="javascript:;" class="next"></a>
+    </div>
+</div>
+<!--图片滑动区域结束 -->
+<!--分享到侧边栏开始 -->
+<div id="shareBtn">分享到</div>
+<h2 id="shareTitle"></h2>
+<div id="share">
+	<span class="close"></span>
+	<ul>
+		<li><a href="###" class="a">新浪微博</a></li>
+		<li><a href="###" class="b">人人网</a></li>
+		<li><a href="###" class="c">腾讯朋友</a></li>
+		<li><a href="###" class="d">豆瓣网</a></li>
+		<li><a href="###" class="e">QQ 空间</a></li>
+		<li><a href="###" class="f">腾讯微博</a></li>
+		<li><a href="###" class="g">开心网</a></li>
+		<li><a href="###" class="h">百度贴吧</a></li>
+		<li><a href="###" class="i">搜狐微博</a></li>
+		<li><a href="###" class="g">QQ 好友</a></li>
+	</ul>
+</div>
+<!--分享到侧边栏结束 -->
+<!--页脚部分开始 -->
+<div id="footer">
+    <p class="copyright">© 2015 ZhaoJianBin. All Rights Reserved | 
+        <a href="http://www.miitbeian.gov.cn/" target="_blank">冀ICP备15026051号</a>
+    </p>
+</div>
+<!--页脚部分结束 -->
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="../js/move.js"></script>
+<script src="../js/mainNav.js"></script>
+<script src="../js/JSWorksMain.js"></script>
+</body>
+</html>

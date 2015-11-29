@@ -1,0 +1,210 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>倒计时效果</title>
+<!--
+两个时间点
+现在的时间点一直在变化
+未来要去的时间点是固定不变的
+获取到t之后，用以下的公式转换
+天：Math.floor(t/86400);
+时：Math.floor(t%86400/3600);
+分：Math.floor(t%86400%3600/60);
+秒：Math.floor(t%60);
+ -->
+<style>
+body,div,span,input,p,a{margin:0; padding:0;}
+body{
+	margin:50px auto;
+	font-family:'Microsoft Yahei', sans-serif;
+	background:#ced7df; 
+}
+#countDown{
+	position:relative;
+	width:800px; 
+	height:500px;
+	margin:0 auto;
+	box-shadow:5px 5px 5px black;
+	border-radius:10px;
+	background:url(../images/JSWorksCountDown/countDownBg.jpg) no-repeat; 
+}
+/*输入区域的宽高正好等于各个span和input的宽高加起来
+普通的span和input的宽高都是50，字号30像素。只有请输入和年份那里稍微宽一些*/
+#fillIn { 
+	position:absolute;
+	left:100px;
+	top:50px; 
+	width:580px;
+	height:50px;
+	font-size:30px; 
+	color:black; 
+	font-weight:bold;
+}
+#fillIn input { 
+	float:left;
+	width:50px;
+	height:50px; 
+	line-height:50px;
+	text-align:center; 
+	font-weight:bold; 
+	font-size:30px; 
+	color:black; 
+	border:none; 
+	overflow:hidden;
+}
+#fillIn span {
+	float:left;
+	width:50px;
+	height:50px; 
+	line-height:50px;
+	text-align:center;
+}
+#fillIn .title {width:250px;}
+#fillIn .long_text {width:80px;}
+
+#go{
+	position:absolute;
+	left:350px;
+	top:150px;
+	width:100px; 
+	height:100px;
+	background:url(../images/JSWorksCountDown/start.png) no-repeat;
+}
+.active {position:absolute; top:155px; left:237px; width:150px; height:150px; background:url(images/btn_hover.jpg) no-repeat; filter:alpha(opacity:0); opacity:0;}
+
+#target {
+	position:absolute; 
+	left:0; 
+	top:300px;
+	width:100%;
+	font-size:30px;
+	text-align:center; 
+	color:black; 
+	font-weight:bold; 
+	background:#99F;
+}
+#target strong {color:#009;}
+
+#date {
+	position:absolute;
+	width:800px;
+	height:100px;
+	left:0; top:400px; 
+	color:#0FF; 
+	font-size:30px;
+	font-weight:bold;
+}
+#date p {position:absolute;}
+#day {left:100px; }
+#hour {left:300px;}
+#min { left:450px;}
+#sec {left:600px;}
+
+h1 { position:absolute; bottom:0; right:0; }
+h1 a { position:absolute; right:40px; bottom:30px; width:292px; height:72px; }
+</style>
+</head>
+
+<body>
+<div id="countDown">
+    <div id="fillIn">
+        <span class="title">请输入结束日期：</span>
+        <input type="text" class="long_text" value="2022" />
+        <span class="space1">年</span>
+        <input type="text" class="text" value="10" />
+        <span class="space2">月</span>
+        <input type="text" class="text" value="20" />
+        <span class="space3">日</span>
+    </div>
+
+    <a href="javascript:;" id="go" class="go"></a>
+    <p id="target">
+        现在距离 -
+        <strong></strong>
+        - 还剩：
+    </p>
+
+    <div id="date">
+        <p id="day">000</p>
+        <p id="hour">00</p>
+        <p id="min">00</p>
+        <p id="sec">00</p>
+    </div>
+</div>
+<script>
+window.onload = function(){
+	//获取各种元素
+	var oFill = document.getElementById('fillIn');
+	var oInputYear = oFill.getElementsByTagName('input')[0];
+	var oInputMonth = oFill.getElementsByTagName('input')[1];
+	var oInputDay = oFill.getElementsByTagName('input')[2];
+	
+	var oTxtDay = document.getElementById('day');
+	var oTxtHour = document.getElementById('hour');
+	var oTxtMin = document.getElementById('min');
+	var oTxtSec = document.getElementById('sec');
+	
+	var oP = document.getElementById('target');
+	var oTxtEnd = oP.getElementsByTagName('strong')[0];
+	
+	var oBtn = document.getElementById('go');
+	var timer = null;
+	
+	//前面补零的函数
+	function setZero(num,n){
+		var str = ''+num;
+		while(str.length<n){
+			str = '0' + str;
+		}
+		return str;
+	}
+	//点击的时候用输入的内容改变下方的文字，并且开定时器每隔一秒刷新一次，为了防止一开始全是0，还要手动执行一次
+	oBtn.onclick = function(){
+		oTxtEnd.innerHTML = oInputYear.value+'年'+oInputMonth.value+'月'+oInputDay.value+'日';
+		count();
+		timer = setInterval(count,1000);
+	};
+	
+	function count(){
+		//获取未来某一天的日期对象和现在的日期对象
+		var oDateEnd = new Date();
+		var oDateNow = new Date();
+		//按照输入设置未来某一天的日期对象，用parseInt取整并且一律转成数字
+		oDateEnd.setFullYear(parseInt(oInputYear.value));
+		oDateEnd.setMonth(parseInt(oInputMonth.value)-1);
+		oDateEnd.setDate(parseInt(oInputDay.value));
+		//时分秒一律设置为0
+		oDateEnd.setHours(0);
+		oDateEnd.setMinutes(0);
+		oDateEnd.setSeconds(0);
+		//这是现在跟输入的时间点之间的秒数
+		var iRemain = (oDateEnd.getTime()-oDateNow.getTime())/1000;
+		//检测一下，不允许输入现在之前的时间
+		if(iRemain<0){
+			return;
+		}
+		//分别利用上面的公式计算出剩下的天，小时，分钟，秒数
+		var iDay = Math.floor(iRemain/86400);
+		var iHour = Math.floor(iRemain%86400/3600);
+		var iMin = Math.floor(iRemain%86400%3600/60);
+		var iSec = Math.floor(iRemain%60);
+		//给不够位数的前面补零
+		oTxtDay.innerHTML = setZero(iDay,3)+' 天';
+		oTxtHour.innerHTML = setZero(iHour,2)+' 小时';
+		oTxtMin.innerHTML = setZero(iMin,2)+' 分钟';
+		oTxtSec.innerHTML = setZero(iSec,2)+' 秒';
+	}
+	//要注意这一步。
+	//需要在文本框获得焦点的时候关闭定时器，否则会在还没有输入完的时候就开始计算，因为定时器一直没有关
+	var aInput = document.getElementsByTagName('input');
+	
+	for(var i=0; i<aInput.length; i++){
+		aInput[i].onfocus = function(){
+			clearInterval(timer);
+		};
+	}
+};
+</script>
+</body>
+</html>

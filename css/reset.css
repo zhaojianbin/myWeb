@@ -1,0 +1,58 @@
+/*样式重置，清除默认的页边距以及各个元素的内外边距*/
+body,h1,h2,h3,h4,p,span,img,dl,dt,dd,ul,ol,li,form,input,textarea,th,td,select{
+	margin:0;
+	padding:0;
+}
+/*设置整个页面的字体都是无衬线，方方正正，比较漂亮*/
+body{
+	font-size:12px; 
+	background:#ced7df;
+	font-family: 'Microsoft Yahei', sans-serif;
+}
+li{ /*去掉小圆点*/
+	list-style:none;
+}
+a{
+	text-decoration:none;
+}
+img{
+	border:none;
+	vertical-align:top;
+}
+table{/*去掉表格的间隙*/
+	border-collapse:collapse;
+}
+/*去掉获得焦点时候的边框高亮效果*/
+input,textarea{
+	outline:none;
+}
+/*去掉多行文本框可以调整大小的默认功能*/
+textarea{
+	resize:none;
+	/*去掉右边的滚动条*/
+	overflow:auto;
+}
+#footer{
+	position:relative;
+	width:1002px;
+	margin:0 auto;
+	height:60px;
+	background:#323b43;
+}
+#footer .copyright{
+	position:absolute;
+	left:0;
+	top:0;
+	width:1002px;
+	height:60px;
+	line-height:60px;
+	font-size:18px;
+	color:#fff;
+	text-align:center;
+}
+#footer .copyright a{
+	color:#fff;
+}
+#footer .copyright a:hover{
+	text-decoration:underline;
+}
