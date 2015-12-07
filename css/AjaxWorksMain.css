@@ -64,45 +64,48 @@
 	text-align:center;
 }
 /*弹出层部分结束*/
-
-
-
-
-
-/*中间主要区域开始*/
-#wrapContent{
-	width:1002px;
-	height:520px;
-	margin:10px auto 0;
+/*中间主要内容区域开始*/
+.list{
+	width:888px;
+	margin:30px auto;
 }
-#dragImg{
+.box{
 	position:relative;
-	width:1002px;
-	height:440px;
-	margin-bottom:16px;
-}
-#dragImg li{
 	float:left;
-	margin:10px 20px;
 	width:200px;
 	height:200px;
-	z-index:1;
+	border:1px solid white;
+	margin:10px;
 }
-#dragImg li a{
-	cursor:default;
+.box a{
+	display:block;
+	width:200px;
+	height:200px;
+	overflow:hidden;
+	position:absolute;
+	left:0;top:0;
+	z-index:9;
 }
-#dragImg .active{
-	border:5px dashed red;
+.boxBor{
+	position:absolute;left:0;top:0;display:none;border:1px solid white;z-index:4;
+	background:#fff;
+	background:-moz-linear-gradient(top,rgba(255,255,255,0.25),rgba(255,255,255,0.77));
+	background:-webkit-linear-gradient(top,rgba(255,255,255,0.25),rgba(255,255,255,0.77));
+	background:-o-linear-gradient(top,rgba(255,255,255,0.25),rgba(255,255,255,0.77));
+	background:-ms-linear-gradient(top,rgba(255,255,255,0.25),rgba(255,255,255,0.77));
 }
-/*中间主要区域结束*/
+/*中间主要内容区域结束*/
 /*底部选择区域开始*/
 #menu{
 	position:absolute;
-	top:-64px;
-	width:100%;
+	top:100px; right:0;
+	width:128px;
 	height:128px;
 	text-align:center;
 	z-index:2000;
+}
+#menu a{
+	display:block;
 }
 #menu img{
 	/*给图片设置宽高中的一个，另外一个会自动等比例缩放*/

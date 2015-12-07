@@ -3,9 +3,12 @@
 上面div的宽度=8*50+(65+15+15)*3 = 400+285 = 685
 下面div的宽度=6*50+(65+15+15)*3 = 300+285 = 585
 */
+a{
+	color:#fff;
+}
 #wrapClock{
 	position:absolute;
-	left:330px; top:220px;
+	left:330px; top:250px;
 	width:690px;
 	height:240px;
 	box-shadow:2px 2px;
@@ -141,5 +144,193 @@
 	background:#0099ff;
 }
 /*主要列表区域结束*/
+/*其他小作品开始*/
+#other{
+	position:relative;
+	width:1002px;
+	height:200px;
+	margin:0 auto;
+	background:#e8e8e8;
+}
+#other .floatLeft{
+	position:absolute;
+	left:-30px; top:25px;
+	width:30px;
+	height:150px;
+	font-size:22px;
+	text-align:center;
+	text-shadow:1px 1px 1px;
+	color:#323b43;
+	box-shadow:-2px 2px 2px 2px #3300FF;
+	background:#69F;
+}
+#list1{
+  font-size: 0;
+  position: relative;
+  padding: 0;
+  width: 960px;
+  margin: 40px auto;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#list1 li{
+  display: inline-block;
+  width: 160px;
+  height: 60px;
+  background: #DA4453;
+  font-size: 16px;
+  text-align: center;
+  line-height: 60px;
+  color: #fff;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#other .slider {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  background: #46CFB0;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+/*  Ripple */
+
+
+.ripple {
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  position: absolute;
+  opacity: 1;
+}
+
+.rippleEffect {
+  -webkit-animation: rippleDrop .6s linear;
+  animation: rippleDrop .6s linear;
+}
+ @-webkit-keyframes 
+rippleDrop {  100% {
+ -webkit-transform: scale(2);
+ transform: scale(2);
+ opacity: 0;
+}
+}
+ @keyframes 
+rippleDrop {  100% {
+ -webkit-transform: scale(2);
+ transform: scale(2);
+ opacity: 0;
+}
+}
+/*三级菜单开始*/
+/* common styling */
+#menu{
+	position:absolute;
+	left:40px; top:100px;
+	/*这个宽度等于7个li的宽度加上7个边框的宽度*/
+	width:924px; 
+	height:30px;
+}
+#menu ul li{
+	/*这是一个li的宽度*/
+	width:130px;
+	float:left; 
+	border-left:2px solid #eee;
+}
+#menu a, #menu a:visited{
+	display:block; 
+	float:left; 
+	width:125px; 
+	padding:0 0 0 5px; 
+	height:30px; 
+	line-height:30px; 
+	color:#fff;
+	/*这是最上面一条的颜色*/
+	background:#0099ff;
+}
+/*li中的ul，也就是下面一个第二行和第三行，默认是隐藏的*/
+#menu li ul{
+	display: none;
+}
+#menu ul li:hover a{
+	color:#fff;
+	/*鼠标移入第一排之后，被移入的那个li和第二排的颜色*/
+	background:#b3ab79;
+}
+#menu ul li:hover ul{ 
+	position:absolute; 
+	display:block;
+	width:924px; 
+	left:0; top:30px;
+	color:#fff;
+	/*没有内容的左右两边的颜色*/
+	background:#b3ab79;
+}
+#menu ul li:hover ul.right_side li{
+	float:right;
+	border-left:2px solid #eee;
+}
+#menu ul li:hover ul.left_side li{
+	float:left;
+	border-left:2px solid #eee;
+}
+#menu ul li:hover ul li a.hide{
+	color:#fff;
+}
+#menu ul li:hover ul li:hover a.hide{
+	background:#b3ab79; 
+	color:#fff;
+}
+#menu ul li:hover ul li ul{
+	display: none;
+}
+#menu ul li:hover ul li a{
+	display:block; 
+	background:#b3ab79; 
+	color:#fff;
+}
+#menu ul li:hover ul li a:hover{
+	background:#dfc184; 
+	color:#000;
+}
+#menu ul li:hover ul li:hover ul{
+	display:block; 
+	position:absolute; 
+	left:0; top:30px; 
+	color:#000;
+	/*鼠标移入第二排的颜色*/
+	background:#dfc184;
+}
+#menu ul li:hover ul.right li{
+	float:right;
+}
+#menu ul li:hover ul li:hover a.hide{
+	background:#dfc184; 
+	color:#000;
+}
+#menu ul li:hover ul li:hover ul li a{
+	background:#dfc184; 
+	color:#000;
+}
+#menu ul li:hover ul li:hover ul li a:hover{
+	/*鼠标移入第三排的颜色*/
+	background:#bd8d5e; 
+	color:#fff;
+}
+/*三级菜单结束*/
+/*其他小作品结束*/
 
 

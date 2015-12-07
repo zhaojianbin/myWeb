@@ -1,0 +1,36 @@
+h1,h3,p,a,button{
+	font-family:'Microsoft Yahei',sans-serif;
+}
+/*第一屏的高度*/
+.firstPage{
+	height:750px;
+}
+/*第一屏的背景*/
+.firstPage-bg{
+	/*背景的高度应该大于实际的高度*/
+	height:800px;
+	width:100%;
+	position:absolute;
+	background-position:center center;
+	background-size:cover;
+}
+/*引入背景图片*/
+#firstPageBg{
+	background:#000;
+}
+.title-text{
+	margin-left:50px;
+}
+/*h1中的内容*/
+.headh1content{
+	font-size:50px;
+	color:#fff;
+	margin-top:150px;
+	line-height:75px;
+}
+/*p元素*/
+.headfontsize p{
+	margin-top:20px;
+	line-height:30px;
+	color:#fff;
+}

@@ -83,6 +83,60 @@ $(function(){
 			}
 		},45);
 	};
+	
+	//其他作品的导航条效果
+	$("#list1 li").click(function (e) {
+
+		// make sure we cannot click the slider
+		if ($(this).hasClass('slider')) {
+			return;
+		}
+
+		/*添加滑动效果*/
+
+		//确定哪一个被点击了
+		var whatTab = $(this).index();
+
+		//计算滑动条应该走多少距离
+		var howFar = 160 * whatTab;
+
+		$(".slider").css({
+			left: howFar + "px"
+		});
+
+		/*添加水波效果*/
+
+		//先移除原来的
+		$(".ripple").remove();
+
+		//执行
+		var posX = $(this).offset().left,
+	  	posY = $(this).offset().top,
+	  	buttonWidth = $(this).width(),
+	  	buttonHeight = $(this).height();
+
+		//添加元素
+		$(this).prepend("<span class='ripple'></span>");
+
+		//循环
+		if (buttonWidth >= buttonHeight) {
+			buttonHeight = buttonWidth;
+		} else {
+			buttonWidth = buttonHeight;
+		}
+
+		//获取元素的中点
+		var x = e.pageX - posX - buttonWidth / 2;
+		var y = e.pageY - posY - buttonHeight / 2;
+
+		//添加水波的样式，开始动画
+		$(".ripple").css({
+			width: buttonWidth,
+			height: buttonHeight,
+			top: y + 'px',
+			left: x + 'px'
+		}).addClass("rippleEffect");
+	});
 		
 });
 	

@@ -46,128 +46,31 @@ $(function(){
 		return false;
 	});
 	
-	//中间图片拖拽开始
-	var oUl = $('#dragImg').get(0);
-	var aLi = oUl.getElementsByTagName('li');
-	var iMinZindex = 2;
-	var aPos = [];
-	//布局转换
-	for(var i=0;i<aLi.length;i++){
-		aPos[i] = {left: aLi[i].offsetLeft, top:aLi[i].offsetTop};
-	}
-	for(var i=0;i<aLi.length;i++){
-		aLi[i].style.left = aPos[i].left+'px';
-		aLi[i].style.top = aPos[i].top+'px';
-		
-		aLi[i].style.position = 'absolute';
-		aLi[i].style.margin = '0';
-		aLi[i].index = i;
-	}
+	//中间图片区域
+	$('.box').bind('mouseover',function(){
+		var oPosition=$(this).position();
+		var oThis=$(this);		
+		$('.boxBor').queue('fnHide');		
+		if($(".boxBor").attr('deta-switch')!=='true'){
+			$(".boxBor").attr('deta-switch','true');
+			$(".boxBor").css({
+				width:'100%',
+				height:$(window).height(),
+				left:'0px',
+				top:'0px',
+				opacity:0,
+				display:'block'
+			})
+		}
+		$(".boxBor").stop(false,false).css('background','blue').animate({
+			opacity:0.4,
+			left:oPosition.left+10,
+			top:oPosition.top+10,
+			width:oThis.width(),
+			height:oThis.height()
+		},250);
+	});
 	
-	//拖拽
-	for(var i=0; i<aLi.length; i++){
-		setDrag(aLi[i]);
-	}
-	function setDrag(obj){
-		obj.onmousedown = function(ev){
-			obj.style.zIndex = iMinZindex++;
-			var oEvent = ev || window.event;
-			var disX = oEvent.clientX - obj.offsetLeft;
-			var disY = oEvent.clientY - obj.offsetTop;
-			
-			document.onmousemove = function(ev){
-				var oEvent = ev || window.event;
-				obj.style.left = oEvent.clientX - disX +'px';
-				obj.style.top = oEvent.clientY - disY +'px';
-				//先让所有li的class变成空的
-				for(var i=0; i<aLi.length; i++){
-					aLi[i].className = '';
-				}
-				var oNear = findNearest(obj);
-				if(oNear){
-					oNear.className = 'active';
-				}
-			};
-			document.onmouseup = function(){
-				document.onmousemove = null;
-				document.onmouseup = null;
-				//鼠标抬起的时候看看有没有离的最近的li
-				var oNear = findNearest(obj);
-				if(oNear){
-					oNear.className = '';
-					oNear.style.zIndex = iMinZindex++;
-					obj.style.zIndex = iMinZindex++;
-					
-					startMove(oNear,aPos[obj.index]);
-					startMove(obj,aPos[oNear.index]);
-					var temp = 0;
-					tem = obj.index;
-					obj.index = oNear.index;
-					oNear.index = tem;
-				}
-				else{
-					startMove(obj,aPos[obj.index])
-				}
-			};
-			clearInterval(obj.timer);
-			return false;
-		};
-	}
-	
-	//碰撞检测
-	function cdText(obj1,obj2){
-		var l1 = obj1.offsetLeft;
-		var r1 = obj1.offsetLeft + obj1.offsetWidth;
-		var t1 = obj1.offsetTop;
-		var b1 = obj1.offsetTop + obj1.offsetHeight;
-		
-		var l2 = obj2.offsetLeft;
-		var r2 = obj2.offsetLeft + obj2.offsetWidth;
-		var t2 = obj2.offsetTop;
-		var b2 = obj2.offsetTop + obj2.offsetHeight;
-		//碰不上的情况
-		if(r1<l2 || l1>r2 || b1<t2 || t1>b2){
-			return false;
-		}
-		//碰上的情况
-		else{
-			return true;
-		}
-	}
-	
-	//计算距离
-	function getDis(obj1,obj2){
-		var a = obj1.offsetLeft - obj2.offsetLeft;
-		var b = obj1.offsetTop - obj2.offsetTop;
-		
-		return Math.sqrt(a*a+b*b);
-	}
-	
-	//找到碰上的并且最近的
-	function findNearest(obj){
-		var iMin = 999999;
-		var iMinIndex = -1;
-		for(var i=0; i<aLi.length; i++){
-			//如果发现当前被拖拽的就是第i个li，那就跳过，自己不跟自己比位置
-			if(obj == aLi[i])continue;
-			if(cdText(obj,aLi[i])){
-				var dis = getDis(obj,aLi[i]);
-				//如果比现在最小的距离还小,那就保存更小的距离和索引值
-				if(iMin > dis){
-					iMin = dis;
-					iMinIndex = i;
-				}
-			}
-		}
-		//没改变最初的索引值，那就是没碰上
-		if(iMinIndex == -1){
-			return null;
-		}
-		//碰上了就返回距离最近的那个li
-		else{
-			return aLi[iMinIndex];
-		}
-	}
 	
 	//底部菜单栏开始
 	/*图片的x代表图片中心点到屏幕左边的距离,计算公式：
@@ -182,8 +85,8 @@ $(function(){
 			var yPos = $(this).offset().top + $(this).outerWidth()/2;
 			
 			//dis就是鼠标跟图片中心的距离
-			var a = xPos - oEvent.clientX;
-			var b = yPos - oEvent.clientY;
+			var a = xPos - oEvent.pageX;
+			var b = yPos - oEvent.pageY;
 			var dis = Math.sqrt(a*a+b*b);
 			//把距离折合成比例,用1减去是为了中间比例高，两边比例低
 			var scale = 1-dis/300;

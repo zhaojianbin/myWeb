@@ -2,6 +2,8 @@
 <html>
 <head>
 <meta charset="utf-8">
+<meta name="viewport" 
+content="width=device-width,initial-scale=0.75,maximum-scale=1">
 <title>Ajax与后台作品导航</title>
 <link rel="shortcut icon" href="../images/indexLayout/logo.ico"> 
 <link rel="stylesheet" href="../css/reset.css">
@@ -22,42 +24,72 @@
 </div>
 <div id="mainNavBtn"></div>
 <!--顶部导航栏结束 -->
+<!--中间大区域开始 -->
+<!--暂时做了一个层级的提升，但是这样就不能点击链接了，有链接之后需要到把层级去掉，还要到js中把颜色去掉， -->
+<div class="boxBor" style="z-index:50;"></div>
+
+<div class="list">
+	<div class="box">
+    	<a href="javascript:;"><img src="../images/AjaxWorksMain/1.jpg" alt=""></a>
+    </div>
+    <div class="box">
+    	<a href="javascript:;"><img src="../images/AjaxWorksMain/1.jpg" alt=""></a>
+    </div>
+    <div class="box">
+    	<a href="javascript:;"><img src="../images/AjaxWorksMain/1.jpg" alt=""></a>
+    </div>
+    <div class="box">
+    	<a href="javascript:;"><img src="../images/AjaxWorksMain/1.jpg" alt=""></a>
+    </div>
+    <div class="box">
+    	<a href="javascript:;"><img src="../images/AjaxWorksMain/1.jpg" alt=""></a>
+    </div>
+    <div class="box">
+    	<a href="javascript:;"><img src="../images/AjaxWorksMain/1.jpg" alt=""></a>
+    </div>
+    <div class="box">
+    	<a href="javascript:;"><img src="../images/AjaxWorksMain/1.jpg" alt=""></a>
+    </div>
+    <div class="box">
+    	<a href="javascript:;"><img src="../images/AjaxWorksMain/1.jpg" alt=""></a>
+    </div>
+    <div class="box">
+    	<a href="javascript:;"><img src="../images/AjaxWorksMain/1.jpg" alt=""></a>
+    </div>
+    <div class="box">
+    	<a href="javascript:;"><img src="../images/AjaxWorksMain/1.jpg" alt=""></a>
+    </div>
+    <div class="box">
+    	<a href="javascript:;"><img src="../images/AjaxWorksMain/1.jpg" alt=""></a>
+    </div>
+    <div class="box">
+    	<a href="javascript:;"><img src="../images/AjaxWorksMain/1.jpg" alt=""></a>
+    </div>
+	<div style="clear:both;"></div>
+</div>
+<!--中间大区域结束 -->
 <!--弹出层开始 -->
 <div id="overlay"></div>
 <div id="littlelay">
 	<h2><span id="closelay">×</span></h2>
-    <p>亲,我和页面中的图片都可以拖动呦!^-^</p>
+    <p>亲,你可以拖动我试试^-^</p>
 </div>
 <input id="popBtn" type="button" value="一个小提示">
 <!--弹出层结束 -->
-<!--中间图片拖拽开始-->
-<div id="wrapContent">
-	<ul id="dragImg">
-    	<li><a href="javascript:;"><img src="../images/AjaxWorksMain/1.jpg"></a></li>
-    	<li><a href="javascript:;"><img src="../images/AjaxWorksMain/2.jpg"></a></li>
-    	<li><a href="javascript:;"><img src="../images/AjaxWorksMain/3.jpg"></a></li>
-    	<li><a href="javascript:;"><img src="../images/AjaxWorksMain/4.jpg"></a></li>
-    	<li><a href="javascript:;"><img src="../images/AjaxWorksMain/5.jpg"></a></li>
-    	<li><a href="javascript:;"><img src="../images/AjaxWorksMain/6.jpg"></a></li>
-    	<li><a href="javascript:;"><img src="../images/AjaxWorksMain/7.jpg"></a></li>
-    	<li><a href="javascript:;"><img src="../images/AjaxWorksMain/8.jpg"></a></li>
-    </ul>
+<!--右侧菜单开始 -->
+<div id="menu">
+    <a href="javascript:;"><img src="../images/AjaxWorksMain/01.jpg" alt=""></a>
+    <a href="javascript:;"><img src="../images/AjaxWorksMain/02.jpg" alt=""></a>
+    <a href="javascript:;"><img src="../images/AjaxWorksMain/03.jpg" alt=""></a>
+    <a href="javascript:;"><img src="../images/AjaxWorksMain/04.jpg" alt=""></a>
+    <a href="javascript:;"><img src="../images/AjaxWorksMain/05.jpg" alt=""></a>
+    <a href="javascript:;"><img src="../images/AjaxWorksMain/06.jpg" alt=""></a>
+    <a href="javascript:;"><img src="../images/AjaxWorksMain/07.jpg" alt=""></a>
+    <a href="javascript:;"><img src="../images/AjaxWorksMain/08.jpg" alt=""></a>
 </div>
-<!--中间图片拖拽结束 -->
+<!--右侧菜单结束 -->
 <!--页脚部分开始 -->
 <div id="footer">
-	<!--底部菜单开始 -->
-    <div id="menu">
-        <a href="javascript:;"><img src="../images/AjaxWorksMain/01.jpg" alt=""></a>
-        <a href="javascript:;"><img src="../images/AjaxWorksMain/02.jpg" alt=""></a>
-        <a href="javascript:;"><img src="../images/AjaxWorksMain/03.jpg" alt=""></a>
-        <a href="javascript:;"><img src="../images/AjaxWorksMain/04.jpg" alt=""></a>
-        <a href="javascript:;"><img src="../images/AjaxWorksMain/05.jpg" alt=""></a>
-        <a href="javascript:;"><img src="../images/AjaxWorksMain/06.jpg" alt=""></a>
-        <a href="javascript:;"><img src="../images/AjaxWorksMain/07.jpg" alt=""></a>
-        <a href="javascript:;"><img src="../images/AjaxWorksMain/08.jpg" alt=""></a>
-    </div>
-    <!--底部菜单结束 -->
     <p class="copyright">© 2015 ZhaoJianBin. All Rights Reserved | 
         <a href="http://www.miitbeian.gov.cn/" target="_blank">冀ICP备15026051号</a>
     </p>
