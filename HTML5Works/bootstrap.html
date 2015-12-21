@@ -9,39 +9,65 @@
 </head>
 
 <body>
-
-<!--第一屏开始 -->
-<div class="firstPage">
-	<!--放背景图片的div开始 -->
-	<div class="firstPage-bg" id="firstPageBg"></div>
-    <!--放背景图片的div结束 -->
-    <!--存放内容的div开始 -->
-    <div class="container">
-    	<div class="row">
-        	<!--头部文字区域开始 -->
-        	<div class="title-text">
-            	<div class="col-md-12 headfontsize">
-                	<h1 class="headh1content">
-                    	欢迎访问我的网站<br>
-                        我是前端爱好者，欢迎和我交流^-^
-                    </h1>
-                    <p>书山有路勤为径，学海无涯苦作舟。学习不容易，坚持就是胜利。</p>
-                    <p>书山有路勤为径，学海无涯苦作舟。学习不容易，坚持就是胜利。</p>
-                    <p class="wrapBtn">
-                    	<a class="btn btn-success btn-lg" href="javascript:;">这里是一个按钮</a>
-                    </p>
-                </div>
-            </div>
-            <!--头部文字区域结束 -->
+<!--导航开始 -->
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+    	<div class="navbar-header">
+        	<a href="javascript:;" class="navbar-brand" id="logo"><img src="../images/HTML5WorksBootstrap/logo.png" alt="logo"></a>
+        	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+            	<span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right" id="navbar-list">
+                <li class="active"><a href="javascript:;"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
+                <li><a href="javascript:;"><span class="glyphicon glyphicon-list"></span> 资讯</a></li>
+                <li><a href="javascript:;"><span class="glyphicon glyphicon-fire"></span> 案例</a></li>
+                <li><a href="javascript:;"><span class="glyphicon glyphicon-question-sign"></span> 关于</a></li>
+            </ul>
         </div>
     </div>
-    <!--存放内容的div结束 -->
-</div>
-<!--第一屏结束 -->
+</nav>
+<!--导航结束 -->
 
+<!--轮播图开始 -->
+<div id="myCarousel" class="carousel slide">
+	<ol class="carousel-indicators">
+    	<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    	<li data-target="#myCarousel" data-slide-to="1"></li>
+    	<li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner"> 
+    	<div class="item active" style="background:#66c7ce;">
+        	<img src="../images/HTML5WorksBootstrap/lunbo1.jpg" alt="第一张轮播图">
+        </div>
+    	<div class="item" style="background:#1f1f27;">
+        	<img src="../images/HTML5WorksBootstrap/lunbo2.jpg" alt="第二张轮播图">
+        </div>
+    	<div class="item" style="background:#66c7ce;">
+        	<img src="../images/HTML5WorksBootstrap/lunbo1.jpg" alt="第三张轮播图">
+        </div>
+    </div>
+    <a href="#myCarousel" data-slide="prev" class="carousel-control left">
+    	<span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a href="#myCarousel" data-slide="next" class="carousel-control right">
+    	<span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+	
+</div>
+<!--轮播图结束 -->
 
 <!--引入bootstrap的js文件，由于依赖jQuery，所以要先引入jQuery -->
 <script src="../js/jquery-1.11.3.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
+<script>
+//轮播图自动播放
+$('#myCarousel').carousel({
+	interval:4000
+});
+</script>
 </body>
 </html>

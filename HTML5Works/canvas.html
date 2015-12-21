@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>canvas画基本图形</title>
+<title>canvas的基本用法</title>
 <style>
 body{
 	font-family:'Microsoft Yahei',sans-serif;
@@ -36,6 +36,31 @@ body,div,canvas,h1{
 	letter-spacing:2px;
 	font-weight:normal;
 	text-align:center;
+}
+#donghua{
+	float:left;
+	width:450px;
+	height:600px;
+}
+#can1{
+	background:#eee;
+}
+button{
+	width:80px;
+	height:50px;
+	font-size:18px;
+}
+p{
+	font-size:22px;
+	color:blue;
+}
+#huaban{
+	float:right;
+	width:450px;
+	height:400px;
+}
+#can2{
+	border:1px solid blue;
 }
 </style>
 </head>
@@ -104,8 +129,19 @@ body,div,canvas,h1{
     	<canvas id="c15" class="draw" width="300" height="280"></canvas>
     	<h1>图像和图像切片</h1>
     </div>
+    <div id="donghua">
+    	<p>canvas小动画</p>
+        <canvas id="can1" width="400" height="400"></canvas><br>
+        <button id="start">开始</button>
+        <button id="stop">停止</button>
+    </div>
     
+    <div id="huaban">
+        <p>canvas画板，按下并移动鼠标画线</p>
+        <canvas id="can2" width="400" height="400"></canvas>
+    </div>
 </div>
+<script src="../js/jquery-1.11.3.min.js"></script>
 <script>
 /*旋转坐标空间的三个函数*/
 function drawTop(ctx,fillStyle){
@@ -163,7 +199,7 @@ function draw2(){
 	context11.fillStyle = '#b44bff';
 	context11.fillRect(100,10,180,150);
 	context11.fillStyle = 'green';
-	context11.globalCompositeOperation = 'darker';
+	context11.globalCompositeOperation = 'darken';
 	context11.globalAlpha = 0.5;
 	context11.beginPath();
 	context11.arc(100,150,100,0,Math.PI*2,true);
@@ -327,6 +363,68 @@ window.onload = function(){
 		context15.drawImage(img,200,100,50,50,240,240,60,40);
 	};
 	img.src ="../images/HTML5WorksInvertedImg/3.jpg";
+	
+	//小动画
+	var can1 = document.getElementById('can1');
+	var cvs1 = can1.getContext('2d');
+	var pos = 20;
+	var width = 400;
+	var height = 400;
+	var timer = null;
+	var move = 1;//移动的位置，向下为正，向上为负
+	
+	
+	var oBtnStart = document.getElementById('start');
+	var oBtnStop = document.getElementById('stop');
+	function drawQiqiu(){
+		cvs1.clearRect(0,0,width,height);
+		cvs1.fillStyle='blue';
+		cvs1.beginPath();
+		cvs1.arc(200,pos,pos,0,Math.PI*2,1);
+		cvs1.closePath();
+		cvs1.fill();
+		pos = pos + move;
+		
+		if(pos==0 || pos==height-150){
+			move = -move;
+		}
+	}
+	oBtnStart.onclick = function(){
+		clearInterval(timer);
+		timer = setInterval(drawQiqiu,8);
+	};
+	oBtnStop.onclick = function(){
+		clearInterval(timer);
+	};
+	
+	
+	//画板
+	var can2 = document.getElementById('can2');
+	var cvs2 = can2.getContext('2d');
+	cvs2.lineWidth=10
+	cvs2.strokeStyle="red";
+	var flag = false;
+	//按下鼠标
+	$('#can2').mousedown(function(e){
+		var mouseX = e.pageX - this.offsetLeft;
+  		var mouseY = e.pageY - this.offsetTop;
+  		flag=true;
+   		cvs2.moveTo(mouseX,mouseY); //起始位置
+	});
+	//抬起鼠标
+	$('#can2').mouseup(function(e){
+		flag=false;
+	});
+	//移动鼠标
+	$('#can2').mousemove(function(e){
+		var mouseX = e.pageX - this.offsetLeft;
+  		var mouseY = e.pageY - this.offsetTop;
+		if(flag){
+			 cvs2.lineTo(mouseX,mouseY); //终止位置
+		 	 cvs2.stroke();				//结束图形
+		}
+	});
+	
 	
 };
 </script>

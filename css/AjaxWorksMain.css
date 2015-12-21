@@ -73,17 +73,20 @@
 	position:relative;
 	float:left;
 	width:200px;
-	height:200px;
+	height:130px;
 	border:1px solid white;
 	margin:10px;
 }
 .box a{
-	display:block;
-	width:200px;
-	height:200px;
-	overflow:hidden;
 	position:absolute;
 	left:0;top:0;
+	display:block;
+	width:200px;
+	height:130px;
+	color:red;
+	font-size:22px;
+	font-weight:bold;
+	overflow:hidden;
 	z-index:9;
 }
 .boxBor{
