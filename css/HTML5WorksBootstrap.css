@@ -1,5 +1,6 @@
 body{
 	font-family:'Microsoft Yahei',sans-serif;
+	color:#666;
 }
 #logo{
 	padding:0;
@@ -13,3 +14,123 @@ body{
 .carousel-inner img{
 	margin:0 auto;
 }
+/*以上是轮播图之上*/
+.tab1{
+	margin:30px 0;
+	color:#666;
+}
+.tab1 .text-muted{
+	color:#999;
+	text-decoration:line-through;
+}
+.tab1 .media-heading{
+	margin:5px 0 10px 0;
+}
+.tab1 .col{
+	padding:20px;
+}
+.tab2{
+	padding:60px 20px;
+	text-align:center;
+	background:#eee;
+}
+.tab2 img{
+	width:45%;
+	height:45%;
+}
+.tab3{
+	padding:60px 20px;
+	text-align:center;
+}
+.tab3 img{
+	width:65%;
+	height:65%;
+}
+.text h3{
+	font-size:22px;
+}
+.text p{
+	font-size:16px;
+}
+.tab-h2{
+	font-size:20px;
+	color:#0059b2;
+	text-align:center;
+	letter-spacing:1px;
+}
+.tab-p{
+	margin:20px 0 40px 0;
+	text-align:center;
+	letter-spacing:1px;
+	font-size:15px;
+	color:#999;
+}
+@media(min-width:768px){
+	.tab-h2{
+		font-size:26px;
+	}
+	.tab-p{
+		font-size:16px;
+	}
+	.text h3{
+		font-size:22px;
+	}
+	.text p{
+		font-size:16px;
+	}
+	.tab2-text{
+		float:left;
+	}
+	.tab2-img{
+		float:right;
+	}
+}
+@media(min-width:992px){
+	.tab-h2{
+		font-size:28px;
+	}
+	.tab-p{
+		font-size:17px;
+	}
+	.text h3{
+		font-size:24px;
+	}
+	.text p{
+		font-size:17px;
+	}
+}
+@media(min-width:1200px){
+	.tab-h2{
+		font-size:30px;
+	}
+	.tab-p{
+		font-size:18px;
+	}
+	.text h3{
+		font-size:26px;
+	}
+	.text p{
+		font-size:18px;
+	}
+}
+
+/*页脚部分开始*/
+#footer{
+	background:#eee;
+	border-top:1px solid #ccc;
+	padding:20px;
+	text-align:center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

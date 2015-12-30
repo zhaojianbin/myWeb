@@ -155,6 +155,17 @@ body{
 }
 
 /*分享到侧边栏结束*/
+@media screen and (max-width: 960px){
+    #shareBtn{
+		display:none;
+	}
+	#shareTitle{
+		display:none;
+	}
+	#share{
+		display:none;
+	}
+}
 
 
 

@@ -50,7 +50,7 @@
 }
 #container .nav li a{
 	width:200px;
-	font-size:20px;
+	font-size:25px;
 	font-weight:bolder;
 	color:black;
 }
@@ -426,7 +426,7 @@
 	width:350px;
 	height:380px;
 	line-height:45px;
-	font-size:20px;
+	font-size:24px;
 	color:#fff;
 	z-index:50;
 }
@@ -537,7 +537,7 @@
 	background:#59626a;
 	z-index:2000;
 }
-#showSkills li h2{
+#showSkills li h3{
 	text-align:center;
 	background:#7fbb60;
 	margin:0 auto 10px;
@@ -549,7 +549,7 @@
 	height:200px;
 	font-family:"宋体" serif;
 	margin:0 auto;
-	font-size:20px;
+	font-size:26px;
 	line-height:30px;
 	color:#0FF;
 }
@@ -573,4 +573,7 @@
 	opacity:1;
 }
 /*********************************回到顶部结束*****************************/
-
+/*用于大纲标题的隐藏*/
+.none{
+	display:none;
+}

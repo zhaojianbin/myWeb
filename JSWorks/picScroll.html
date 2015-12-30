@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>图片无缝滚动</title>
+<meta name="viewport" content="width=device-width,initial-scale=0.85,maximum-scale=1">
 <!--一个li的大小和一张图片的大小一样，先确定外层div的宽度等于一组图片的宽度。然后设置定时器改变ul的left值，具体的方法就是用ul的左边距减去一定的数值，数值越大滚动越快。发现有问题，露出了背景。接着就又复制了一组图片，相当于一共有两份。但是发现因为ul的宽度不够，图片排成了两行，那就只好设置ul的宽度等于每一个li的宽度乘以li的个数，也就是两组图片的个数。
 offsetLeft表示与父元素的左边距，向左滚动时候，当两组图片刚刚滚动超过一半距离的时候，就拉回来。
 最后设置最外层div的溢出隐藏，让用户每次只能看到一组图片-->
@@ -56,7 +57,9 @@ body{
 }
 #showSpeed{
 	position:absolute;
-	right:100px; top:400px;
+	top:0;
+	left:50%;
+	margin-left:-130px;
 	width:260px;
 	height:60px;
 	line-height:60px;

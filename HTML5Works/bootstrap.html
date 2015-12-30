@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 <meta charset="utf-8">
 <title>使用bootstrap进行页面布局</title>
 <!--引入bootstrap的css文件 -->
@@ -10,7 +11,7 @@
 
 <body>
 <!--导航开始 -->
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 	<div class="container">
     	<div class="navbar-header">
         	<a href="javascript:;" class="navbar-brand" id="logo"><img src="../images/HTML5WorksBootstrap/logo.png" alt="logo"></a>
@@ -59,7 +60,116 @@
 	
 </div>
 <!--轮播图结束 -->
+<!--轮播图下面的部分开始 -->
+<div class="tab1">
+	<div class="container">
+    	<h2 class="tab-h2">这里是一部分内容的标题</h2>
+        <p class="tab-p">这里是一些详细的介绍这里是一些详细的介绍这里是一些详细的介绍</p>
+        <div class="row">
+        	<!--这是左上角的子内容 -->
+        	<div class="col-md-6 col">
+            	<div class="media">
+                	<div class="media-left">
+                    	<a href="">
+                    		<img class="media-object" src="../images/HTML5WorksBootstrap/icon1.jpg" alt="">
+                    	</a>
+                    </div>
+                    <div class="media-body">
+                    	<h4 class="media-heading">标题</h4>
+                        <p class="text-muted">这里是内容，这里是内容，这里是内容，这里是内容，</p>
+                        <p>这里是内容，这里是内容，这里是内容，这里是内容，</p>
+                    </div>
+                </div>
+            </div>
+            <!--这是子内容 -->
+        	<div class="col-md-6 col">
+            	<div class="media">
+                	<div class="media-left">
+                    	<a href="">
+                    		<img class="media-object" src="../images/HTML5WorksBootstrap/icon2.jpg" alt="">
+                    	</a>
+                    </div>
+                    <div class="media-body">
+                    	<h4 class="media-heading">标题</h4>
+                        <p class="text-muted">这里是内容，这里是内容，这里是内容，这里是内容，</p>
+                        <p>这里是内容，这里是内容，这里是内容，这里是内容，</p>
+                    </div>
+                </div>
+            </div>
+            <!--这是子内容 -->
+        	<div class="col-md-6 col">
+            	<div class="media">
+                	<div class="media-left">
+                    	<a href="">
+                    		<img class="media-object" src="../images/HTML5WorksBootstrap/icon3.jpg" alt="">
+                    	</a>
+                    </div>
+                    <div class="media-body">
+                    	<h4 class="media-heading">标题</h4>
+                        <p class="text-muted">这里是内容，这里是内容，这里是内容，这里是内容，</p>
+                        <p>这里是内容，这里是内容，这里是内容，这里是内容，</p>
+                    </div>
+                </div>
+            </div>
+            <!--这是子内容 -->
+        	<div class="col-md-6 col">
+            	<div class="media">
+                	<div class="media-left">
+                    	<a href="">
+                    		<img class="media-object" src="../images/HTML5WorksBootstrap/icon4.jpg" alt="">
+                    	</a>
+                    </div>
+                    <div class="media-body">
+                    	<h4 class="media-heading">标题</h4>
+                        <p class="text-muted">这里是内容，这里是内容，这里是内容，这里是内容，</p>
+                        <p>这里是内容，这里是内容，这里是内容，这里是内容，</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--轮播图下面的部分结束 -->
 
+<!--中间第一块开始 -->
+<div class="tab2">
+	<div class="container">
+        <div class="row">
+             <div class="tab2-img col-md-6 col-sm-6">
+                <img class="vertical img-responsive center-block" src="../images/HTML5WorksBootstrap/tab2.jpg" alt="">
+            </div>
+            <div class="text tab2-text col-md-6 col-sm-6">
+                <h3>这里是内容这里是内容</h3>
+                <p>这里是内容这里是内容这里是内容</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--中间第一块结束 -->
+<!--中间第二块开始 -->
+<div class="tab3">
+	<div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <img class="vertical img-responsive center-block" src="../images/HTML5WorksBootstrap/tab3.jpg" alt="">
+            </div>
+            <div class="text col-md-6 col-sm-6">
+                <h3>这里是内容这里是内容</h3>
+                <p>这里是内容这里是内容这里是内容</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--中间第二块结束 -->
+
+<!--页脚部分开始 -->
+<div id="footer">
+	<div class="container">
+    	<p>页脚内容|页脚内容|页脚内容</p>
+        <p>版权信息版权信息版权信息版权信息版权信息</p>
+    </div>
+</div>
+<!--页脚结束 -->
 <!--引入bootstrap的js文件，由于依赖jQuery，所以要先引入jQuery -->
 <script src="../js/jquery-1.11.3.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
@@ -67,6 +177,17 @@
 //轮播图自动播放
 $('#myCarousel').carousel({
 	interval:4000
+});
+//设置tab2和tab3的文字垂直居中
+var tab2 = ($('.vertical').eq(0).height()-$('.text').eq(0).height())/2+'px';
+var tab3 = ($('.vertical').eq(1).height()-$('.text').eq(1).height())/2+'px';
+$('.text').eq(0).css('margin-top',tab2);
+$('.text').eq(1).css('margin-top',tab3);
+$(window).resize(function(){
+	var tab2 = ($('.vertical').eq(0).height()-$('.text').eq(0).height())/2+'px';
+	var tab3 = ($('.vertical').eq(1).height()-$('.text').eq(1).height())/2+'px';
+	$('.text').eq(0).css('margin-top',tab2);
+	$('.text').eq(1).css('margin-top',tab3);
 });
 </script>
 </body>

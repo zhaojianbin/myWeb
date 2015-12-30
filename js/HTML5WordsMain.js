@@ -8,7 +8,7 @@ $(function(){
 	function toDouble(n){
 		return n<10 ? '0'+n : ''+n;
 	}
-	var aImg = document.getElementsByTagName('img');
+	var aImg = document.getElementById('wrapClock').getElementsByTagName('img');
     //定义一个start函数，然后把整个函数放进定时器中
 	//每过一秒就重新获取一下时间对象，得到它里面最新的数据
 	function start(){
@@ -83,6 +83,32 @@ $(function(){
 			}
 		},45);
 	};
+	//仿苹果列表
+	/*图片的x代表图片中心点到屏幕左边的距离,计算公式：
+	图片左边距+图片自身宽度的一半
+	图片的y表示图片的中心点到屏幕顶部的距离,计算公式：
+	图片上边距+图片自身高度的一半*/
+	$(document).mousemove(function(oEvent){
+		var oMenu = $('#applemenu');
+		var aImg = $('#applemenu img');
+		aImg.each(function(i, element) {
+            var xPos = $(this).offset().left + $(this).outerWidth()/2;
+			var yPos = $(this).offset().top + $(this).outerWidth()/2;
+			
+			//dis就是鼠标跟图片中心的距离
+			var a = xPos - oEvent.pageX;
+			var b = yPos - oEvent.pageY;
+			var dis = Math.sqrt(a*a+b*b);
+			//把距离折合成比例,用1减去是为了中间比例高，两边比例低
+			var scale = 1-dis/300;
+			if(scale<0.5){
+				scale = 0.5;
+			}
+			//设置每个图片的宽度
+			var pos = scale*128;
+			$(this).css('width',pos);
+        });
+	});
 	
 	//其他作品的导航条效果
 	$("#list1 li").click(function (e) {
