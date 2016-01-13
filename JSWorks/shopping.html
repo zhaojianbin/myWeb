@@ -2,10 +2,83 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>无标题文档</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>JS实现网页购物车</title>
+<link rel="stylesheet" href="../css/JSWorksShopping.css" type="text/css">
 </head>
 
 <body>
-正在开发中，马上就可以完成
+<!--商品列表开始 -->
+<table id="cartTable">
+    <thead>
+        <tr>
+            <th><label><input class="check-all check" type="checkbox"/>&nbsp;全选</label></th>
+            <th>商品</th>
+            <th>单价</th>
+            <th>数量</th>
+            <th>小计</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="checkbox"><input class="check-one check" type="checkbox"/></td>
+            <td class="goods"><img src="../images/JSWorksShopping/1.jpg" alt=""/><span>卡西欧</span></td>
+            <td class="price">5999.88</td>
+            <td class="count">
+                <span class="reduce">-</span>
+                <input class="count-input" type="text" value="1"/>
+                <span class="add">+</span></td>
+            <td class="subtotal">5999.88</td>
+            <td class="operation"><span class="delete">删除</span></td>
+        </tr>
+        <tr>
+            <td class="checkbox"><input class="check-one check" type="checkbox"/></td>
+            <td class="goods"><img src="../images/JSWorksShopping/2.jpg" alt=""/><span>佳能</span></td>
+            <td class="price">3888.50</td>
+            <td class="count">
+                <span class="reduce">-</span>
+                <input class="count-input" type="text" value="1"/>
+                <span class="add">+</span>
+            </td>
+            <td class="subtotal">3888.50</td>
+            <td class="operation"><span class="delete">删除</span></td>
+        </tr>
+        <tr>
+            <td class="checkbox"><input class="check-one check" type="checkbox"/></td>
+            <td class="goods"><img src="../images/JSWorksShopping/3.jpg" alt=""/><span>索尼</span></td>
+            <td class="price">1428.50</td>
+            <td class="count">
+                <span class="reduce">-</span>
+                <input class="count-input" type="text" value="1"/>
+                <span class="add">+</span>
+            </td>
+            <td class="subtotal">1428.50</td>
+            <td class="operation"><span class="delete">删除</span></td>
+        </tr>
+        <tr>
+            <td class="checkbox"><input class="check-one check" type="checkbox"/></td>
+            <td class="goods"><img src="../images/JSWorksShopping/4.jpg" alt=""/><span>富士</span></td>
+            <td class="price">640.60</td>
+            <td class="count">
+                <span class="reduce">-</span>
+                <input class="count-input" type="text" value="1"/>
+                <span class="add">+</span>
+            </td>
+            <td class="subtotal">640.60</td>
+            <td class="operation"><span class="delete">删除</span></td>
+        </tr>
+    </tbody>
+</table>
+<!--商品列表结束 -->
+<!--结算部分开始 -->
+<div class="foot" id="foot">
+    <label class="fl select-all"><input type="checkbox" class="check-all check"/>&nbsp;全选</label>
+    <a class="fl delete" id="deleteAll" href="javascript:;">删除</a>
+    <div class="fr closing">结 算</div>
+    <div class="fr total">合计：￥<span id="priceTotal">0.00</span></div>
+</div>
+<!--结算部分结束 -->
+<script src="../js/JSWorksShopping.js"></script>
 </body>
 </html>

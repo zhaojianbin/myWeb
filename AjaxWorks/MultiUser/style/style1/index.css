@@ -1,0 +1,19 @@
+#list{
+	float: right;
+	width: 600px;
+	height: 514px;
+	border: 2px solid #ccc;
+}
+#user{
+	float: left;
+	width: 340px;
+	height: 250px;
+	margin-bottom: 10px;
+	border: 2px solid #ccc;
+}
+#pics{
+	float: left;
+	width: 340px;
+	height: 250px;
+	border: 2px solid #ccc;
+}

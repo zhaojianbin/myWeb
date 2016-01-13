@@ -14,7 +14,7 @@ body{
 .carousel-inner img{
 	margin:0 auto;
 }
-/*以上是轮播图之上*/
+/*轮播图开始*/
 .tab1{
 	margin:30px 0;
 	color:#666;
@@ -35,16 +35,16 @@ body{
 	background:#eee;
 }
 .tab2 img{
-	width:45%;
-	height:45%;
+	width:60%;
+	height:30%;
 }
 .tab3{
 	padding:60px 20px;
 	text-align:center;
 }
 .tab3 img{
-	width:65%;
-	height:65%;
+	width:70%;
+	height:70%;
 }
 .text h3{
 	font-size:22px;
@@ -65,6 +65,7 @@ body{
 	font-size:15px;
 	color:#999;
 }
+/*媒体查询*/
 @media(min-width:768px){
 	.tab-h2{
 		font-size:26px;

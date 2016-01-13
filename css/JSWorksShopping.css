@@ -1,0 +1,164 @@
+body,div,p,h1,h2,table,thead,th,tbody.tr.td,tfoot,span{
+    margin: 0;
+    padding: 0;
+}
+a{
+    color:#666;
+    text-decoration: none;
+}
+body{
+    color:#666;
+	background:#eee;
+	font-family:'Microsoft Yahei','sans-serif';;
+}
+table,th.tr.td{
+	box-sizing:border-box;
+}
+img{
+	display:block;
+	width: 100px;
+    height: 80px;
+    border: 1px solid #ccc;
+	margin-right:10px;
+    float:left;
+
+}
+.fl{
+    float:left;
+}
+.fr{
+    float:right;
+}
+/*商品列表开始*/
+table{
+    width:80%;
+	margin:50px auto 0 auto;
+    border-collapse:collapse;
+    border-spacing:0;
+    border:0;
+    text-align:center;
+}
+th,td{
+    border:3px double blue;
+}
+th{
+    background: #4edffc;
+    height: 30px;
+}
+td {
+    padding:2%;
+    color: #222;
+}
+tbody tr:hover {
+    background:#eef6ff;
+}
+.checkbox {
+    width:10%;;
+}
+.goods {
+    width:35%;
+}
+.goods span {
+    width:60%;
+    margin-top:10%;
+    text-align:left;
+    float: left;
+}
+.price {
+    width:15%;
+}
+.count {
+    width:15%;
+	text-align:center;
+}
+.count .add, .count .reduce {
+	display:block;
+    height: 25px;
+    width:60%;
+	margin:2px auto;
+	padding:5%;
+    border: 1px solid #e5e5e5;
+    background: #ddd;
+    text-align: center;
+    line-height: 23px;
+    color: #666;
+}
+.count .add:hover, .count .reduce:hover {
+    color:#fff;
+    z-index: 3;
+    border-color: #f60;
+    cursor: pointer;
+}
+.count input {
+    width:60%;
+    height:15px;
+    line-height:15px;
+    border: 1px solid #aaa;
+    color: #343434;
+    text-align: center;
+    padding:5%;
+    background-color: #fff;
+    z-index: 2;
+}
+.subtotal {
+    width:15%;
+    color: red;
+    font-weight: bold;
+}
+.operation {
+    width:10%;
+}
+.operation span:hover, a:hover {
+    cursor: pointer;
+    color: red;
+    text-decoration: underline;
+}
+/*商品列表结束*/
+
+/*底部结算部分开始*/
+.foot {
+    width:80%;
+    margin: 10px auto 0 auto;
+    color: #666;
+    height: 48px;
+    border: 1px solid #c8c8c8;
+    background-color: #eaeaea;
+    background-image:linear-gradient(RGB(241,241,241),RGB(226,226,226));
+    position: relative;
+    z-index: 8;
+}
+.foot div, .foot a {
+	width:15%;
+	display:block;
+	background:#03C;
+    line-height: 48px;
+    height: 48px;
+}
+.foot .select-all {
+    width:25%;
+    height: 48px;
+    line-height: 48px;
+    padding-left: 5px;
+    color: #666;
+	background:orange;
+}
+.foot .closing {
+	width:15%;
+    border-left: 1px solid #c8c8c8;
+    text-align: center;
+    color: #000;
+    font-weight: bold;
+	background:red;
+    cursor: pointer;
+}
+.foot .total{
+	float:left;
+	width:42%;
+	text-align:center;
+    cursor: pointer;
+	background:pink;
+}
+.foot  #priceTotal, .foot #selectedTotal {
+    color: red;
+    font-weight: bold;
+}

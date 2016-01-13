@@ -1,0 +1,131 @@
+
+/*大图和搜索区域开始*/
+#search{
+	position:relative;
+	width:100%;
+	min-width:1263px;
+	height:600px;
+	background: url(../../images/HTML5WorksPCFix/search.jpg) no-repeat center;
+}
+#search .center{
+	position:absolute;
+	left:50%; top:50%;
+	margin:-30px 0 0 -300px;
+	width:600px;
+	height:60px;
+	background:#000;
+	opacity:0.6;
+	border-radius:10px;
+}
+#search .search{
+	position:absolute;
+	left:50%; top:50%;
+	margin:-27px 0 0 -296px;
+	padding:0 10px;
+	width:446px;
+	height:52px;
+	font-size:24px;
+	color:#666;
+	border:1px solid #666;
+	border-radius:10px;
+	background:#eee;
+}
+#search .button{
+	position:absolute;
+	left:50%; top:50%;
+	margin:-27px 0 0 175px;
+	width:120px;
+	height:54px;
+	font-size:24px;
+	font-weight:bold;
+	color:#666;
+	border:1px solid #666;
+	border-radius:10px;
+	cursor:pointer;
+	background:#eee;
+}
+/*大图和搜索区域结束*/
+/*主要内容展示区域结束 */
+#tour{
+	width:1263px;
+	margin:30px auto;
+	text-align:center;
+}
+#tour .center h2{
+	font-size:45px;
+	letter-spacing:2px;
+	color:#666;
+	margin:10px 0;
+}
+#tour .center p{
+	color:#666;
+	margin:10px 0;
+}
+#tour figure{
+	position:relative;
+	display:inline-block;
+	width:380px;
+	border:1px solid #ddd;
+	margin:15px 12px;
+	padding:4px;
+	text-align:left;
+	border-radius:4px;
+}
+#tour figure img{
+	vertical-align:middle;
+}
+#tour figure figcaption{
+	padding:7px 5px;
+	font-size:14px;
+	color:#777;
+	letter-spacing:1px;
+	line-height:1.5;
+}
+#tour .info{
+	padding:5px 0 0 0 ;
+}
+#tour .title{
+	color:#333;
+	font-weight:normal;
+}
+#tour .sat{
+	position:relative;
+	top:5px; right:5px;
+	font-size:13px;
+	color:#999;
+	font-style:normal;
+	float:right;
+}
+#tour .price{
+	color:#f60;
+}
+#tour .price strong{
+	font-size:20px;
+	letter-spacing:1px;
+}
+#tour .type{
+	position:absolute;
+	left:4px; top:4px;
+	width:90px;
+	height:25px;
+	color:#fff;
+	font-size:14px;
+	text-align:center;
+	line-height:25px;
+	background:#59b200;
+}
+/*主要内容展示区域结束*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+

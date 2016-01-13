@@ -1,0 +1,453 @@
+/* CSS Document */
+/*图片区域开始*/
+#headline{
+	width:100%;
+	min-width:1263px;
+	height:300px;
+	background:linear-gradient(to right bottom,rgba(0,0,0,0.5),rgba(0,0,0,0)),url(../../images/HTML5WorksPCFix/zixun.jpg) no-repeat center;
+}
+#headline .center{
+	width:1263px;
+	height:300px;
+	margin:0 auto;
+}
+#headline hgroup{
+	padding:100px 0 0 50px;
+}
+#headline h2{
+	font-size:36px;
+	color:#eee;
+	letter-spacing:1px;
+}
+#headline h3{
+	font-size:20px;
+	color:#eee;
+	letter-spacing:1px;
+}
+/*图片区域结束*/
+
+/*主要内容开始*/
+#container{
+	width:1263px;
+	margin:30px auto;
+}
+/*侧栏开始*/
+#container .sidebar{
+	float:right;
+	width:340px;
+}
+#container .sidebox{
+	border:1px solid #eee;
+	margin:0 0 10px 0;
+	text-align:center;
+}
+#container .sidebox h2{
+	font-size:20px;
+	font-weight:normal;
+	letter-spacing:1px;
+	text-indent:8px;
+	color:#666;
+	height:40px;
+	line-height:40px;
+	text-align:left;
+	background:#fafafa;
+}
+#container .tag{
+	padding:10px 0;
+}
+#container .tag li{
+	display:inline-block;
+	width:100px;
+	height:35px;
+	text-align:left;
+	text-indent:8px;
+	line-height:35px;
+	margin:2px auto;
+	background:#eee;
+}
+#container .tag a{
+	color:#666;
+	display:block;
+}
+#container .tag a:hover{
+	color:#fff;
+	background:#458b00;
+}
+#container .figure{
+	padding:10px 0;
+}
+#container figure{
+	display:inline-block;
+	padding:4px;
+	color:#666;
+}
+#container .box{
+	padding:10px 0;
+}
+#container .box a{
+	display:inline-block;
+	width:150px;
+	height:40px;
+	color:#666;
+	text-align:left;
+	text-indent:35px;
+	line-height:35px;
+	margin:2px auto;
+}
+#container .box a.trea1{
+	background:#eee url(../../images/HTML5WorksPCFix/trea1.jpg) no-repeat 10px center;
+}
+#container .box a.trea2{
+	background:#eee url(../../images/HTML5WorksPCFix/trea2.jpg) no-repeat 10px 42%;
+}
+#container .box a.trea3{
+	background:#eee url(../../images/HTML5WorksPCFix/trea3.jpg) no-repeat 10px 42%;
+}
+#container .box a.trea4{
+	background:#eee url(../../images/HTML5WorksPCFix/trea4.jpg) no-repeat 10px 42%;
+}
+/*侧栏结束*/
+#container .information .list{
+	float:left;
+	width:910px;
+}
+/*列表区域开始*/
+#container .information .infor{
+	height:45px;
+	line-height:45px;
+	margin-bottom:20px;
+	background:#eee;
+}
+#container .information .left{
+	float:left;
+	display:inline-block;
+}
+#container .information .left li{
+	width:150px;
+	height:43px;
+	line-height:43px;
+	text-align:center;
+	display:inline-block;
+}
+#container .information .left li:first-child{
+	position:relative;
+	left:1px;
+	background:#fff;
+	border-top:2px solid #458b00;
+}
+#container .information .left a{
+	color:#666;
+}
+#container .information .right{
+	float:right;
+	display:inline-block;
+	margin-right:20px;
+}
+#container .information .right li{
+	width:60px;
+	height:45px;
+	line-height:45px;
+	text-align:center;
+	display:inline-block;
+}
+#container  .information.right a{
+	padding:3px 8px;
+	color:#666;
+}
+#container .information .right a.selected,#container .information .right a:hover{
+	color:#fff;
+	background:#458b00;
+}
+/*列表区域结束*/
+/*图片列表开始*/
+#container .tour{
+	position:relative;
+	width:908px;
+	padding:0;
+	margin-bottom:20px;
+	border:1px solid #eee;
+}
+#container .tour img{
+	float:left;
+}
+#container .tour figcaption{
+	float:right;
+	width:528px;
+	height:230px;
+}
+#container .tour hgroup{
+	width:300px;
+}
+#container .tour h2{
+	padding:10px 0 10px 25px;
+	font-size:24px;
+	font-weight:normal;
+	color:#333;
+}
+#container .tour h3{
+	padding:10px 0 10px 25px;
+	font-size:16px;
+	font-weight:normal;
+	color:#666;
+	line-height:1.5;
+}
+#container .tour ol{
+	padding-left:25px;
+	line-height:2;
+	color:#666;
+}
+#container .tour mark{
+	background:#fff;
+	border:1px solid #458b00;
+	border-radius:4px;
+	padding:0 5px;
+	color:#458b00;
+}
+#container .tour .buy{
+	position:absolute;
+	right:30px; top:55px;
+}
+#container .tour .price{
+	font-size:20px;
+	color:#f60;
+}
+#container .tour .price strong{
+	font-size:36px;
+}
+#container .tour .price s{
+	font-size:16px;
+	color:#999;
+}
+#container .tour .reserve{
+	margin-top:10px;
+}
+#container .tour .reserve a{
+	display:block;
+	width:152px;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	font-size:20px;
+	color:#fff;
+	border-radius:4px;
+	background:#f60;
+}
+#container .tour .type{
+	position:absolute;
+	left:0; top:0;
+	width:90px;
+	height:25px;
+	color:#fff;
+	font-size:14px;
+	text-align:center;
+	line-height:25px;
+	background:#59b200;
+}
+#container .tour .disc{
+	position:absolute; 
+	right:0px; top:10px;
+	width:56px;
+	height:26px;
+	line-height:20px;
+	text-align:left; 
+	background:black;
+    box-shadow:2px 2px 20px #888; 
+	transform:rotate(30deg);
+}
+#container .tour .disc span{
+	display:block;
+	width:52px;
+	height:52px;
+	padding-top:5px;
+	font-size:14px;
+	font-weight:normal;
+	letter-spacing:2px;
+	color:pink;
+	text-indent:7px;
+}
+#container .tour footer{
+	position:absolute;
+	bottom:0;
+	width:528px;
+	height:30px;
+	line-height:30px;
+	color:#666;
+	text-indent:25px;
+	letter-spacing:1px;
+	background:#fff;
+}
+#container .tour time{
+	color:#458b00;
+}
+#container .information .more,#container .scenery .more{
+	width:200px;
+	height:50px;
+	font-size:18px;
+	color:#666;
+	line-height:50px;
+	text-align:center;
+	margin:0 auto;
+	border:1px solid #ccc;
+	background:#fafafa;
+	border-radius:10px;
+	cursor:pointer;
+}
+/*图片列表结束*/
+/*票务的主要内容开始*/
+#container .ticket,#container .scenery,#container .about{
+	width:900px;
+	font-size:20px;
+	color:#666;
+}
+#container .ticket h2,#container .scenery h2,#container .about h2{
+	font-size:30px;
+	font-weight:normal;
+	height:40px;
+	line-height:40px;
+	border-bottom:1px dashed #999;
+	padding:0 0 15px 0;
+}
+#container .ticket .type{
+	margin:20px 0 10px 0;
+}
+#container .ticket .type mark{
+	color:#fff;
+	padding:5px 8px;
+	margin:0 10px 0 16px;
+	border-radius:4px;
+	background:#458b00;
+}
+#container .ticket .left{
+	width:43%;
+	display:inline-block;
+}
+#container .ticket .right{
+	width:43%;
+	display:inline-block;
+}
+#container .ticket .button{
+	width:9%;
+	display:inline-block;
+}
+#container .ticket .submit{
+	position:relative;
+	top:-30px;
+	display:block;
+	width:90px;
+	height:90px;
+	line-height:90px;
+	text-align:center;
+	font-size:20px;
+	color:#fff;
+	border-radius:4px;
+	border:none;
+	cursor:pointer;
+	background:#f60;
+}
+#container .ticket .form p{
+	line-height:3;
+}
+#container .ticket .form input{
+	width:250px;
+	height:30px;
+	margin:0 0 0 16px;
+	font-size:18px;
+	color:#666;
+	padding:5px;
+	border:1px solid #ccc;
+	border-radius:4px;
+	background:#fff;
+}
+#container .ticket .new{
+	margin:20px 0 0 0;
+}
+#container .ticket .new ul{
+	margin:20px 0 0 0;
+}
+#container .ticket .new li{
+	display:inline-block;
+	padding:5px 10px;
+}
+#container .ticket .new li:first-child{
+	padding-left:0;
+}
+#container .ticket .new li:nth-child(2){
+	color:#fff;
+	border-radius:4px;
+	background:#458b00;
+}
+/*表格开始*/
+#container .ticket table{
+	width:100%;
+	margin:20px 0 0 0;
+	border:1px solid #ddd;
+	/*双边框变成单边框*/
+	border-collapse:collapse;
+}
+#container .ticket table th{
+	height:50px;
+	line-height:50px;
+	border-bottom:1px solid #ddd;
+}
+
+#container .ticket table td{
+	height:50px;
+	line-height:50px;
+	border-bottom:1px solid #ddd;
+	text-align:center;
+}
+#container .ticket table tr:nth-child(2n){
+	background:#fafafa;
+}
+#container .ticket table tr:hover{
+	background:#eee;
+}
+#container .ticket .price{
+	color:#f60;
+}
+#container .ticket .more{
+	color:#666;
+}
+#container .ticket .reserve{
+	display:inline-block;
+	width:80px;
+	height:35px;
+	line-height:35px;
+	text-align:center;
+	font-size:20px;
+	color:#fff;
+	border-radius:4px;
+	background:#f60;
+}
+/*表格结束*/
+/*票务的主要内容结束*/
+/*风景展示开始*/
+#container .scenery figure{
+	display:inline-block;
+	width:435px;
+	border:1px solid #ddd;
+	margin:15px 0 15px 0;
+	padding:4px;
+	text-align:left;
+	border-radius:4px;
+}
+#container .scenery figcaption{
+	text-align:center;
+	padding:5px 0;
+}
+/*风景展示结束*/
+/*主要内容结束*/
+
+
+/*关于我们页面开始*/
+#container .about p{
+	line-height:1.6;
+	margin:20px 0;
+}
+#container .about address{
+	line-height:3;
+	margin:20px 0;
+	font-style:normal;
+}
+/*关于我们页面结束*/
+

@@ -1,0 +1,417 @@
+html{
+	font-size:625%;
+}
+body,div,p,ul,ol,li,a,h1,h2,h3,h4,figure,footer{
+	margin:0;
+	padding:0;
+}
+body{
+	background:#fff;
+	font-family:'Microsoft Yahei',sans-serif;
+	font-size:.16rem;
+}
+div,figure,figcaption{
+	box-sizing:border-box;
+}
+ul,ol{
+	list-style:outside none none;
+}
+a{
+	text-decoration:none;
+}
+input,button{
+	outline:none;
+}
+/*这句用来缩放图片*/
+img{
+	display:block;
+	max-width:100%;
+}
+.none{
+	display:none;
+}
+/*清除浮动*/
+.clearfix:after{
+	clear:both;
+	display:block;
+	height:0;
+	content:'.';
+	visibility:hidden;
+}
+/*首页导航开始*/
+#header{
+	position:fixed;
+	top:0;
+	width:100%;
+	height:.45rem;
+	font-size:.16rem;
+	background:#333;
+	z-index:3000;
+}
+#header .link{
+	height:.45rem;
+	line-height:.45rem;
+	color:#eee;
+}
+#header .link li{
+	width:25%;
+	text-align:center;
+	float:left;
+}
+#header .link a{
+	display:block;
+	color:#eee;
+}
+#header .link a:hover,
+#header .active a{
+	background-color:#000;
+}
+/*首页导航结束*/
+/*轮播区开始*/
+#adver{
+	max-width:6.4rem;
+	margin:0 auto;
+	padding:.45rem 0 0 0 ;
+}
+/*轮播区结束*/
+/*搜索区域开始*/
+#search{
+	position:relative;
+	max-width:6.4rem;
+	height:.33rem;
+	margin:0 auto;
+	padding:.03rem 0 0 0;
+	background:#ddd;
+}
+#search .search{
+	display:block;
+	width:95%;
+	height:.27rem;
+	margin:0 auto;
+	padding:0 .05rem;
+	font-size:.14rem;
+	border-radius:.04rem;
+	background:#fff;
+}
+#search .button{
+	display:block;
+	position:absolute;
+	right:1%; top:.04rem;
+	width:.5rem;
+	height:.27rem;
+	font-size:.14rem;
+	color:#666;
+	border-top-right-radius:.04rem;
+	border-bottom-right-radius:.04rem;
+	background:#eee;
+	cursor:pointer;
+}
+/*搜索区域结束*/
+/*旅游部分开始*/
+#tour{
+	max-width:6.4rem;
+	margin:.1rem auto 0 auto;
+}
+#tour h2{
+	text-align:center;
+	font-size:.26rem;
+	color:#666;
+}
+#tour h3{
+	margin:.05rem 0 .1rem 0;
+	text-align:center;
+	font-size:.16rem;
+	font-weight:normal;
+	color:#666;
+}
+/*旅游部分结束*/
+/*首页图片列表开始*/
+#tour figure{
+	width:50%;
+	float:left;
+	font-size:.16rem;
+	padding:0 0 .05rem 0;
+	background:#eee;
+}
+#tour figure img{
+	padding:.02rem;
+	border-radius:.04rem;
+}
+#tour figcaption{
+	color:#666;
+	font-size:.16rem;
+	padding:.02rem .05rem;
+}
+#tour h4{
+	overflow:hidden;
+	font-size:.16rem;
+	font-weight:normal;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+#tour p{
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	
+}
+#tour .info{
+	padding:.1rem 0 0 0;
+	font-size:.16rem;
+}
+#tour .price{
+	color:#f60;
+}
+#tour .sat{
+	position:relative;
+	right:.05rem;
+	float:right;
+	font-style:normal;
+}
+/*首页图片列表结束*/
+/*底部开始*/
+#footer{
+	max-width:6.4rem;
+	color:#777;
+	margin:0 auto;
+	padding:.1rem 0;
+	font-size:.16rem;
+	text-align:center;
+	background:#222;
+}
+#footer .top{
+	padding:0 0 .05rem 0;
+}
+/*底部结束*/
+
+/*information页面开始*/
+/*information页面的大图开始*/
+#headline{
+	position:relative;
+	max-width:6.4rem;
+	margin:0 auto;
+	padding:.45rem 0 0 0;
+}
+#headline hgroup{
+	position:absolute;
+	left:10%; top:45%;
+	color:#333;
+}
+#headline h2{
+	font-size:.22rem;
+}
+#headline h3{
+	font-size:.16rem;
+}
+.list{
+	max-width:6.4rem;
+	margin:.15rem auto;
+	padding:0 .1rem;
+	font-size:.16rem;
+	color:#666;
+}
+.list h2{
+	font-size:.2rem;
+	padding:0 0 .15rem 0;
+	border-bottom:.01rem dashed #999;
+}
+/*information页面的大图结束*/
+.information figure{
+	position:relative;
+	margin:.15rem 0 0 0;
+}
+.information figure img{
+	float:left;
+	width:50%;
+}
+.information figure:after{
+	clear:both;
+	display:block;
+	height:0;
+	content:'.';
+	visibility:hidden;
+}
+.information figure figcaption{
+	float:right;
+	width:48%;
+}
+.information .title{
+	border:none;
+	padding:0 0 .05rem 0;
+	/*webkit私有属性，四个配合使用*/
+	overflow:hidden;
+	display:-webkit-box;
+	-webkit-line-clamp:1;
+	-webkit-box-orient:vertical;
+}
+.information .small_title{
+	font-weight:normal;
+	padding:0;
+	/*webkit私有属性，四个配合使用*/
+	overflow:hidden;
+	display:-webkit-box;
+	-webkit-line-clamp:2;
+	-webkit-box-orient:vertical;
+}
+.information .price{
+	position:absolute;
+	bottom:0;
+	color:#f60;
+}
+.information .price strong{
+	font-size:.26rem;
+}
+/*information页面结束*/
+/*票务页面开始*/
+ .ticket .type{
+	margin:.2rem 0 .1rem 0;
+}
+ .ticket .type mark{
+	color:#fff;
+	padding:.05rem .08rem;
+	margin:0 .1rem 0 .16rem;
+	border-radius:.04rem;
+	background:#458b00;
+}
+.ticket .submit{
+	display:block;
+	width:30%;
+	margin:0 auto;
+	padding:.1rem;
+	text-align:center;
+	color:#fff;
+	border-radius:.04rem;
+	border:none;
+	cursor:pointer;
+	background:#f60;
+}
+.ticket .form p{
+	margin:.1rem 0;
+}
+.ticket .form label{
+	display:block;
+	margin:0 0 .05rem 0;
+}
+.ticket .form input{
+	width:97%;
+	height:.2rem;
+	color:#666;
+	padding:.05rem;
+	border:1px solid #ccc;
+	border-radius:.04rem;
+	background:#fff;
+}
+.ticket .new{
+	margin:20px 0 0 0;
+}
+ .ticket .new ul{
+	margin:20px 0 0 0;
+}
+.ticket .new li{
+	display:inline-block;
+	padding:5px 10px;
+}
+.ticket .new li:first-child{
+	padding-left:0;
+}
+.ticket .new li:nth-child(2){
+	color:#fff;
+	border-radius:4px;
+	background:#458b00;
+}
+/*表格开始*/
+.ticket table{
+	width:100%;
+	margin:20px 0 0 0;
+	border:1px solid #ddd;
+	/*双边框变成单边框*/
+	border-collapse:collapse;
+}
+.ticket table th{
+	padding:.15rem 0;
+	border-bottom:1px solid #ddd;
+}
+
+.ticket table td{
+	padding:.15rem 0;
+	border-bottom:1px solid #ddd;
+	text-align:center;
+}
+ .ticket table tr:nth-child(2n){
+	background:#fafafa;
+}
+ .ticket table tr:hover{
+	background:#eee;
+}
+ .ticket .price{
+	color:#f60;
+}
+ .ticket .more{
+	color:#666;
+}
+.ticket .reserve{
+	padding:.05rem .08rem;
+	text-align:center;
+	color:#fff;
+	border-radius:.04rem;
+	background:#f60;
+}
+/*票务页面结束*/
+/*about页面开始*/
+.about p{
+	line-height:2;
+	margin:.2rem 0;
+}
+.about address{
+	font-style:normal;
+	margin:.2rem 0;
+	line-height:1.6;
+}
+/*about页面结束*/
+
+/*媒体查询，大于480px并且小于640px*/
+@media (min-width:480px) and (max-width:640px){
+	#tour h2,.information .price strong{
+		font-size:.26rem;
+	}
+	#tour h3,#footer,#tour figcaption,#tour .info,.list{
+		font-size:.16rem;
+	}
+	#headline h2{
+		font-size:.22rem;
+	}
+	#headline h3{
+		font-size:.14rem;
+	}
+	.list h2{
+		font-size:.2rem;
+	}
+}
+
+/*媒体查询，小于480px*/
+@media (max-width:480px){
+	#tour h2,.information .price strong{
+		font-size:.2rem;
+	}
+	#tour h3{
+		font-size:.14rem;
+	}
+	#tour figcaption,#tour .info,.list{
+		font-size:.13rem;
+	}
+	#footer{
+		font-size:.12rem;
+	}
+	#headline h2{
+		font-size:.18rem;
+	}
+	#headline h3{
+		font-size:.12rem;
+	}
+	.list h2{
+		font-size:.17rem;
+	}
+	.min{
+		display:none;
+	}
+}

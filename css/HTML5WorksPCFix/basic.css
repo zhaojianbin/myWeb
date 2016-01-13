@@ -1,0 +1,114 @@
+body,div,p,ul,ol,li,a,h1,h2,h3,figure,footer{
+	margin:0;
+	padding:0;
+	font-family:'Microsoft Yahei',sans-serif;
+}
+body{
+	background:#fff;
+}
+ul,ol{
+	list-style:outside none none;
+}
+a{
+	text-decoration:none;
+}
+input,button{
+	outline:none;
+}
+/*顶部导航条开始*/
+#header{
+	position:relative;
+	width:100%;
+	min-width:1263px;
+	height:70px;
+	box-shadow:0 10px 10px rgba(0,0,0,0.3);
+	background-color:#333;
+	z-index:3000;
+}
+#header .nav-center{
+	width:1263px;
+	height:70px;
+	margin:0 auto;
+}
+#header .nav-logo{
+	float:left;
+	width:240px;
+	height:70px;
+	text-indent:-9999px;
+	background:#000 url(../../images/HTML5WorksPCFix/logo.png);
+}
+.link{
+	float:right;
+	width:650px;
+	height:70px;
+	color:#eee;
+	line-height:70px;
+}
+.link li{
+	width:120px;
+	text-align:center;
+	float:left;
+}
+.link a{
+	display:block;
+	color:#eee;
+}
+.link a:hover,
+.link li.active a{
+	background-color:#000;
+}
+.none{
+	display:none;	
+}
+/*顶部导航条结束*/
+
+/*底部开始*/
+#footer{
+	position:relative;
+	top:30px;
+	clear:both;
+	height:360px;
+	background:#222;
+}
+#footer .top{
+	width:1263px;
+	height:281px;
+	margin:0 auto;
+	text-align:center;
+}
+#footer .block{
+	float:left;
+	width:410px;
+	height:280px;
+	margin-left:8px;
+	color:#ccc;
+	text-align:left;
+}
+#footer h2{
+	font-size:24px;
+	font-weight:normal;
+	padding:20px 0 0 20px;
+}
+#footer hr{
+	width:90%;
+	border:1px solid #333;
+}
+#footer ul{
+	
+	text-indent:20px;
+}
+#footer a{
+	font-size:18px;
+	color:#777;
+	line-height:200%;
+}
+#footer .bottom{
+	height:80px;
+	line-height:80px;
+	color:#777;
+	text-align:center;
+	border-top:1px solid #444;
+	background:#000;
+}
+/*底部结束*/
+
